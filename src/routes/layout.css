@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-white: #ffffff;
+  --color-navy: #003366;
+  --color-blue: #2664eb;
+  --color-sky: #dbebff;
+  --color-gray: #4a5566;
+}
