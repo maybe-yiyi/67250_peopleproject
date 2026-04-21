@@ -5,8 +5,8 @@
 
 <a
 	href={resolve('/')}
-	class="flex items-center gap-2 rounded-md text-navy outline-none ring-blue transition-[color,box-shadow] hover:text-blue focus-visible:ring-2 focus-visible:ring-offset-2"
+	class="flex items-center gap-2 rounded-md text-navy transition-color hover:text-blue"
 >
-	<img src={favicon} alt="" class="h-8 w-auto shrink-0" width="32" height="38" />
-	<span class="text-lg font-semibold tracking-tight">People Project</span>
+	<img src={favicon} alt="" class="h-10 w-auto shrink-0" />
+	<span class="text-base font-regular tracking-tight">Discharge Planning<br />System</span>
 </a>
