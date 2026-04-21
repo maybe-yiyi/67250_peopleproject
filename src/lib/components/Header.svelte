@@ -2,16 +2,8 @@
 	import Logo from './Logo.svelte';
 </script>
 
-<header>
-	<Logo></Logo>
+<header
+	class="flex min-h-16 flex-row items-center justify-between border-b border-sky bg-white px-4 sm:px-6"
+>
+	<Logo />
 </header>
-
-<style>
-	header {
-		display: flex;
-		flex: row;
-		justify-content: space-between;
-		align-items: center;
-		min-height: 4rem;
-	}
-</style>
