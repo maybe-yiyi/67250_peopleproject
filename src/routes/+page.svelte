@@ -6,7 +6,11 @@
 <SectionScrollSpy />
 
 <main class="flex flex-col">
-	<section id="home" class="scroll-mt-28 px-6 py-16" aria-labelledby="home-heading">
+	<section
+		id="home"
+		class="scroll-mt-28 px-6 py-7 bg-gradient-to-b from-white to-sky"
+		aria-labelledby="home-heading"
+	>
 		<div class="flex flex-row justify-between gap-50">
 			<div class="flex-1 flex flex-col gap-6">
 				<div class="text-navy bg-sky rounded-3xl px-4 py-2 w-fit">
@@ -25,7 +29,7 @@
 					section.
 				</p>
 			</div>
-			<div class="rounded-md border-navy border-2 py-11 px-7 flex-1 min-w-[55%]">
+			<div class="rounded-md border-navy border-2 py-11 px-7 flex-1 min-w-[55%] bg-white">
 				<img src={HomeImage} alt="People using product" class="h-auto w-full" />
 				<div class="grid grid-cols-3 mt-8 gap-22">
 					<div class="rounded-md bg-sky flex flex-col items-center p-3 w-full">
