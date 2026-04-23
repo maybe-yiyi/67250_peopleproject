@@ -1,3 +1,9 @@
+<script lang="ts">
+	import SectionScrollSpy from '$lib/components/SectionScrollSpy.svelte';
+</script>
+
+<SectionScrollSpy />
+
 <main class="flex flex-col">
 	<section
 		id="home"
