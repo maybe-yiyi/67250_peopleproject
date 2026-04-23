@@ -33,5 +33,10 @@
 		"typescript": "^6.0.2",
 		"typescript-eslint": "^8.58.1",
 		"vite": "^8.0.7"
+	},
+	"dependencies": {
+		"@steeze-ui/heroicons": "^2.4.2",
+		"@steeze-ui/lucide-icons": "^1.4.1",
+		"@steeze-ui/svelte-icon": "^1.6.2"
 	}
 }
