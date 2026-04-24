@@ -9,7 +9,7 @@
 	const links = [
 		{ sectionId: 'home', label: 'Home' },
 		{ sectionId: 'problem', label: 'Problem' },
-		{ sectionId: 'process', label: 'Process' }
+		{ sectionId: 'opportunity', label: 'Opportunity' }
 	] as const;
 
 	function hrefForSection(sectionId: string): string {

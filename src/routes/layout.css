@@ -6,6 +6,8 @@
 	--color-blue: #2664eb;
 	--color-sky: #eff6ff;
 	--color-gray: #4a5566;
+	--color-red: #ef4444;
+	--color-yellow: #f59e0b;
 }
 
 @layer base {

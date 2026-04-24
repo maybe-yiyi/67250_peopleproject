@@ -58,7 +58,7 @@
 		</div>
 	</section>
 
-	<section id="problem" class="scroll-my-28 px-6 py-20" aria-labelledby="problem-heading">
+	<section id="problem" class="scroll-my-28 py-20" aria-labelledby="problem-heading">
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="problem-heading" class="text-4xl font-medium text-navy">Problem & Context</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
@@ -121,23 +121,79 @@
 		</div>
 	</section>
 
-	<section
-		id="process"
-		class="scroll-mt-28 bg-sky px-6 py-16 md:py-24"
-		aria-labelledby="process-heading"
-	>
-		<div class="mx-auto max-w-3xl">
-			<h2 id="process-heading" class="text-2xl font-semibold text-navy md:text-3xl">Process</h2>
-			<p class="mt-4 max-w-prose text-gray">
-				Placeholder section to add vertical space and demonstrate smooth scrolling between anchors.
-				Replace with your real workflow steps, checklists, or documentation.
+	<section id="opportunity" class="scroll-mt-28 bg-sky py-16" aria-labelledby="opportunity-heading">
+		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+			<h1 id="opportunity-heading" class="text-4xl font-medium text-navy">Why It Matters</h1>
+			<p class="mt-4 max-w-prose text-center text-gray">
+				Discharge planning failures create ripple effects across operations, safety, and patient
+				outcomes
 			</p>
-			<ul class="mt-6 list-inside list-disc space-y-2 text-gray">
-				<li>Assessment and eligibility</li>
-				<li>Care coordination</li>
-				<li>Discharge documentation</li>
-				<li>Follow-up and handoff</li>
-			</ul>
+			<div class="grid grid-cols-2 my-14 gap-6">
+				<div class="bg-white rounded-md px-9 py-8 flex flex-row border-l-4 border-red gap-4">
+					<div class="bg-red/8 p-3 rounded-md h-fit">
+						<Icon src={FileX} class="h-8 w-8 [stroke-width:2] text-red" />
+					</div>
+					<div class="flex flex-col">
+						<span class="text-navy text-lg">Operational Inefficiency</span>
+						<span class="text-red text-3xl my-2">27%</span>
+						<span class="text-gray">Average increase in length of stay due to discharge delays</span
+						>
+					</div>
+				</div>
+				<div class="bg-white rounded-md px-9 py-8 flex flex-row border-l-4 border-yellow gap-4">
+					<div class="bg-yellow/8 p-3 rounded-md h-fit">
+						<Icon src={FileX} class="h-8 w-8 [stroke-width:2] text-yellow" />
+					</div>
+					<div class="flex flex-col">
+						<span class="text-navy text-lg">Patient Safety Concerns</span>
+						<span class="text-yellow text-3xl my-2">2.4x</span>
+						<span class="text-gray"
+							>Higher risk of adverse events with prolonged hospital stays</span
+						>
+					</div>
+				</div>
+				<div class="bg-white rounded-md px-9 py-8 flex flex-row border-l-4 border-red gap-4">
+					<div class="bg-red/8 p-3 rounded-md h-fit">
+						<Icon src={FileX} class="h-8 w-8 [stroke-width:2] text-red" />
+					</div>
+					<div class="flex flex-col">
+						<span class="text-navy text-lg">Readmission Risk</span>
+						<span class="text-red text-3xl my-2">23%</span>
+						<span class="text-gray">Of readmissions linked to inadequate discharge planning</span>
+					</div>
+				</div>
+				<div class="bg-white rounded-md px-9 py-8 flex flex-row border-l-4 border-yellow gap-4">
+					<div class="bg-yellow/8 p-3 rounded-md h-fit">
+						<Icon src={FileX} class="h-8 w-8 [stroke-width:2] text-yellow" />
+					</div>
+					<div class="flex flex-col">
+						<span class="text-navy text-lg">Staff Burden</span>
+						<span class="text-yellow text-3xl my-2">4.2 hrs</span>
+						<span class="text-gray">Daily time wasted per staff member on coordination tasks</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bg-navy w-full flex flex-col items-center p-8">
+			<span class="text-white text-2xl">Impact Visualization</span>
+			<div class="flex flex-row justify-between gap-6 mt-6">
+				<div class="flex flex-col gap-2 items-center">
+					<span class="text-white text-4xl">$2.8M</span>
+					<span class="text-sky">Annual cost of delays</span>
+				</div>
+				<div class="flex flex-col gap-2 items-center">
+					<span class="text-white text-4xl">156</span>
+					<span class="text-sky">Beds occupied unnecessarily</span>
+				</div>
+				<div class="flex flex-col gap-2 items-center">
+					<span class="text-white text-4xl">18%</span>
+					<span class="text-sky">Patient satisfaction drop</span>
+				</div>
+				<div class="flex flex-col gap-2 items-center">
+					<span class="text-white text-4xl">340</span>
+					<span class="text-sky">Staff hours lost weekly</span>
+				</div>
+			</div>
 		</div>
 	</section>
 </main>
