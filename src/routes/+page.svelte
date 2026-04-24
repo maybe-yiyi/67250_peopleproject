@@ -12,7 +12,10 @@
 		ListChecks,
 		Bell,
 		User,
-		Check
+		Check,
+		Target,
+		Layers,
+		TrendingUp
 	} from '@steeze-ui/lucide-icons';
 	import SectionScrollSpy from '$lib/components/SectionScrollSpy.svelte';
 	import HomeImage from '$lib/assets/HomeImage.png';
@@ -309,6 +312,117 @@
 						<Icon src={Check} class="h-8 w-8 [stroke-width:2]" />
 						<span>Workflow Standardization</span>
 						<span class="text-sky text-sm">Consistent processes across units</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section
+		id="strategy"
+		class="scroll-my-28 py-16 bg-gradient-to-b from-sky to-white"
+		aria-labelledby="strategy-heading"
+	>
+		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+			<h1 id="strategy-heading" class="text-4xl font-medium text-navy">Strategic Analysis</h1>
+			<p class="mt-4 max-w-prose text-center text-gray">
+				Value creation through targeted process improvement and competitive positioning
+			</p>
+			<div class="mt-12 grid grid-cols-2 gap-8">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col">
+					<div class="flex flex-row mb-2 gap-3">
+						<Icon src={Target} class="h-8 w-8 text-blue" />
+						<span class="text-navy text-2xl font-medium">Value Creation</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">1</div>
+						<div class="flex flex-col">
+							<span class="text-navy">Operational Efficiency</span>
+							<span class="text-gray">Reduce coordination overhead and administrative burden</span>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">2</div>
+						<div class="flex flex-col">
+							<span class="text-navy">Clinical Outcomes</span>
+							<span class="text-gray">Improve patient safety and reduce readmission rates</span>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">3</div>
+						<div class="flex flex-col">
+							<span class="text-navy">Resource Utilization</span>
+							<span class="text-gray">Free up beds faster and optimize capacity</span>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">4</div>
+						<div class="flex flex-col">
+							<span class="text-navy">Staff Satisfaction</span>
+							<span class="text-gray">Reduce frustration from manual coordination</span>
+						</div>
+					</div>
+				</div>
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1">
+					<div class="flex flex-row mb-2 gap-3">
+						<Icon src={Layers} class="h-8 w-8 text-blue" />
+						<span class="text-navy text-2xl font-medium">Value Chain</span>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Patient Admission</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray">Capture baseline discharge data</span>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Clinical Assessment</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray">Document barriers and needs</span>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Care Planning</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray">Set EDD and assign tasks</span>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Daily Coordination</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray">Track progress and escalate issues</span>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Discharge Execution</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray">Complete final requirements</span>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Post-Discharge</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray">Monitor transitions and outcomes</span>
+					</div>
+				</div>
+			</div>
+			<div class="rounded-2xl p-8 bg-navy flex flex-col mt-12 w-full">
+				<div class="gap-3 flex flex-row">
+					<Icon src={TrendingUp} class="h-8 w-8 text-white" />
+					<span class="text-white text-2xl font-medium">Competitive Positioning</span>
+				</div>
+				<div class="grid grid-cols-2 mt-6">
+					<div class="flex flex-col">
+						<span class="mb-4 text-white text-xl font-medium">Our Solution</span>
+						<ul class="list-disc list-inside marker:text-green text-white space-y-2">
+							<li>Affordable for smaller hospitals</li>
+							<li>Easy to implement and use</li>
+							<li>Modular and adaptable</li>
+							<li>Focused on discharge planning</li>
+						</ul>
+					</div>
+					<div class="flex flex-col">
+						<span class="mb-4 text-white text-xl font-medium">Existing Systems</span>
+						<ul class="list-disc list-inside marker:text-red text-white space-y-2">
+							<li>Expensive enterprise solutions</li>
+							<li>Complex implementation</li>
+							<li>One-size-fits-all approach</li>
+							<li>Broad patient flow, not discharge-focused</li>
+						</ul>
 					</div>
 				</div>
 			</div>

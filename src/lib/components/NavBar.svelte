@@ -10,7 +10,8 @@
 		{ sectionId: 'home', label: 'Home' },
 		{ sectionId: 'problem', label: 'Problem' },
 		{ sectionId: 'opportunity', label: 'Opportunity' },
-		{ sectionId: 'solution', label: 'Solution' }
+		{ sectionId: 'solution', label: 'Solution' },
+		{ sectionId: 'strategy', label: 'Strategy' }
 	] as const;
 
 	function hrefForSection(sectionId: string): string {
