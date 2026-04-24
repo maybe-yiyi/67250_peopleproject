@@ -6,7 +6,13 @@
 		MessageSquareX,
 		ClipboardX,
 		Eye,
-		Users
+		Users,
+		Calendar,
+		LayoutDashboard,
+		ListChecks,
+		Bell,
+		User,
+		Check
 	} from '@steeze-ui/lucide-icons';
 	import SectionScrollSpy from '$lib/components/SectionScrollSpy.svelte';
 	import HomeImage from '$lib/assets/HomeImage.png';
@@ -121,7 +127,7 @@
 		</div>
 	</section>
 
-	<section id="opportunity" class="scroll-mt-28 bg-sky py-16" aria-labelledby="opportunity-heading">
+	<section id="opportunity" class="scroll-mt-28 bg-sky pt-16" aria-labelledby="opportunity-heading">
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="opportunity-heading" class="text-4xl font-medium text-navy">Why It Matters</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
@@ -192,6 +198,118 @@
 				<div class="flex flex-col gap-2 items-center">
 					<span class="text-white text-4xl">340</span>
 					<span class="text-sky">Staff hours lost weekly</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="solution" class="scroll-my-28 bg-white py-16" aria-labelledby="solution-heading">
+		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+			<h1 id="solution-heading" class="text-4xl font-medium text-navy">Our Solution</h1>
+			<p class="mt-4 max-w-prose text-center text-gray">
+				A unified digital discharge coordination platform designed for smaller hospital environments
+			</p>
+			<div
+				class="rounded-lg bg-navy w-full flex flex-row justify-between mt-12 items-center p-8 gap-8 bg-gradient-to-r from-navy to-blue"
+			>
+				<div class="flex flex-col gap-2 items-center">
+					<span class="text-white text-4xl">Single Platform</span>
+					<span class="text-sky">All discharge data centralized</span>
+				</div>
+				<div class="flex flex-col gap-2 items-center">
+					<span class="text-white text-4xl">Real-Time</span>
+					<span class="text-sky">Instant status updates</span>
+				</div>
+				<div class="flex flex-col gap-2 items-center">
+					<span class="text-white text-4xl">Role-Based</span>
+					<span class="text-sky">Personalized workflows</span>
+				</div>
+			</div>
+			<div class="grid grid-cols-2 my-14 gap-6">
+				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
+					<div class="bg-blue p-3 rounded-md h-fit">
+						<Icon src={Calendar} class="h-8 w-8 [stroke-width:2] text-white" />
+					</div>
+					<div class="flex flex-col gap-2">
+						<span class="text-navy text-lg">Estimated Discharge Date Dashboard</span>
+						<span class="text-gray"
+							>Real-time visibility into projected discharge timelines for all patients</span
+						>
+						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">All Staff</div>
+					</div>
+				</div>
+				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
+					<div class="bg-blue p-3 rounded-md h-fit">
+						<Icon src={LayoutDashboard} class="h-8 w-8 [stroke-width:2] text-white" />
+					</div>
+					<div class="flex flex-col gap-2">
+						<span class="text-navy text-lg">Shared Patient Timeline</span>
+						<span class="text-gray"
+							>Unified view of patient journey from admission to discharge</span
+						>
+						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">
+							Physicians & Nurses
+						</div>
+					</div>
+				</div>
+				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
+					<div class="bg-blue p-3 rounded-md h-fit">
+						<Icon src={ListChecks} class="h-8 w-8 [stroke-width:2] text-white" />
+					</div>
+					<div class="flex flex-col gap-2">
+						<span class="text-navy text-lg">Task Tracker</span>
+						<span class="text-gray"
+							>Role-specific task assignments for nurses, physicians, and case managers</span
+						>
+						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">
+							All Disciplines
+						</div>
+					</div>
+				</div>
+				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
+					<div class="bg-blue p-3 rounded-md h-fit">
+						<Icon src={Bell} class="h-8 w-8 [stroke-width:2] text-white" />
+					</div>
+					<div class="flex flex-col gap-2">
+						<span class="text-navy text-lg">Smart Alert System</span>
+						<span class="text-gray"
+							>Priority notifications for critical discharge milestones and blockers</span
+						>
+						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">Case Managers</div>
+					</div>
+				</div>
+				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
+					<div class="bg-blue p-3 rounded-md h-fit">
+						<Icon src={User} class="h-8 w-8 [stroke-width:2] text-white" />
+					</div>
+					<div class="flex flex-col gap-2">
+						<span class="text-navy text-lg">Role-Based Views</span>
+						<span class="text-gray"
+							>Customized interfaces for different stakeholder perspectives</span
+						>
+						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">Administrators</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-navy text-4xl font-medium">Wireframe</div>
+			<div class="rounded-lg bg-navy w-full flex flex-col items-center p-8">
+				<span class="text-white text-2xl font-medium">System Benefits</span>
+				<div class="flex flex-row justify-between gap-7 mt-6">
+					<div class="text-white flex flex-col items-center px-5 py-3 gap-2">
+						<Icon src={Check} class="h-8 w-8 [stroke-width:2]" />
+						<span>Improved Visibility</span>
+						<span class="text-sky text-sm">Everyone sees the same real-time data</span>
+					</div>
+					<div class="text-white flex flex-col items-center px-5 py-3 gap-2">
+						<Icon src={Check} class="h-8 w-8 [stroke-width:2]" />
+						<span>Better Coordination</span>
+						<span class="text-sky text-sm">Clear task ownership and handoffs</span>
+					</div>
+					<div class="text-white flex flex-col items-center px-5 py-3 gap-2">
+						<Icon src={Check} class="h-8 w-8 [stroke-width:2]" />
+						<span>Workflow Standardization</span>
+						<span class="text-sky text-sm">Consistent processes across units</span>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export const LANDING_SECTION_IDS = ['home', 'problem', 'opportunity'] as const;
+export const LANDING_SECTION_IDS = ['home', 'problem', 'opportunity', 'solution'] as const;
 export type LandingSectionId = (typeof LANDING_SECTION_IDS)[number];
 
 export const activeSectionId = writable<LandingSectionId>('home');
