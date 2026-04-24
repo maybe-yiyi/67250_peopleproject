@@ -329,7 +329,7 @@
 				Value creation through targeted process improvement and competitive positioning
 			</p>
 			<div class="mt-12 grid grid-cols-2 gap-8">
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Target} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium">Value Creation</span>
@@ -363,7 +363,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Layers} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium">Value Chain</span>
