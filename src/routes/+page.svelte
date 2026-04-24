@@ -31,7 +31,7 @@
 	>
 		<div class="flex flex-row justify-between gap-50">
 			<div class="flex-1 flex flex-col gap-6">
-				<div class="text-navy bg-[#dbeafe] rounded-3xl px-4 py-2 w-fit">
+				<div class="text-navy bg-[#dbeafe] rounded-full px-4 py-2 w-fit">
 					Information Systems People Project 2026
 				</div>
 				<h1 id="home-heading" class="text-5xl font-bold text-navy">FlowState:</h1>
@@ -119,12 +119,12 @@
 			<div class="rounded-lg bg-navy w-full flex flex-col items-center p-8">
 				<span class="text-white text-2xl">Key Stakeholders Affected</span>
 				<div class="flex flex-row justify-between gap-7 mt-6">
-					<div class="text-white bg-blue rounded-3xl px-5 py-3 w-fit">Nurses</div>
-					<div class="text-white bg-blue rounded-3xl px-5 py-3 w-fit">Physicians</div>
-					<div class="text-white bg-blue rounded-3xl px-5 py-3 w-fit">Case Managers</div>
-					<div class="text-white bg-blue rounded-3xl px-5 py-3 w-fit">Hospital Administrators</div>
-					<div class="text-white bg-blue rounded-3xl px-5 py-3 w-fit">Patients</div>
-					<div class="text-white bg-blue rounded-3xl px-5 py-3 w-fit">Caregivers</div>
+					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Nurses</div>
+					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Physicians</div>
+					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Case Managers</div>
+					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Hospital Administrators</div>
+					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Patients</div>
+					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Caregivers</div>
 				</div>
 			</div>
 		</div>
