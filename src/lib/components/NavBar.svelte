@@ -11,7 +11,9 @@
 		{ sectionId: 'problem', label: 'Problem' },
 		{ sectionId: 'opportunity', label: 'Opportunity' },
 		{ sectionId: 'solution', label: 'Solution' },
-		{ sectionId: 'strategy', label: 'Strategy' }
+		{ sectionId: 'strategy', label: 'Strategy' },
+		{ sectionId: 'social-theory', label: 'Social Theory' },
+		{ sectionId: 'impact', label: 'Impact' }
 	] as const;
 
 	function hrefForSection(sectionId: string): string {

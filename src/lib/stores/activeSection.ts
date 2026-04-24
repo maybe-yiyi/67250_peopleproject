@@ -5,7 +5,9 @@ export const LANDING_SECTION_IDS = [
 	'problem',
 	'opportunity',
 	'solution',
-	'strategy'
+	'strategy',
+	'social-theory',
+	'impact'
 ] as const;
 export type LandingSectionId = (typeof LANDING_SECTION_IDS)[number];
 
