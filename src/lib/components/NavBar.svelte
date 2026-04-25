@@ -13,7 +13,8 @@
 		{ sectionId: 'solution', label: 'Solution' },
 		{ sectionId: 'strategy', label: 'Strategy' },
 		{ sectionId: 'social-theory', label: 'Social Theory' },
-		{ sectionId: 'impact', label: 'Impact' }
+		{ sectionId: 'impact', label: 'Impact' },
+		{ sectionId: 'team', label: 'Team' }
 	] as const;
 
 	function hrefForSection(sectionId: string): string {

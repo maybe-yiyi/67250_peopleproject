@@ -572,4 +572,12 @@
 			</div>
 		</div>
 	</section>
+	<section id="team" class="scroll-my-28 py-16 bg-white" aria-labelledby="team-heading">
+		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+			<h1 id="team-heading" class="text-4xl font-medium text-navy">Our Team.</h1>
+			<p class="mt-4 max-w-prose text-center text-gray">
+				A multidisciplinary team approach to comprehensive systems analysis
+			</p>
+		</div>
+	</section>
 </main>
