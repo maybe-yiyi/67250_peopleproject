@@ -15,7 +15,10 @@
 		Check,
 		Target,
 		Layers,
-		TrendingUp
+		TrendingUp,
+		Building,
+		Globe,
+		CircleCheckBig
 	} from '@steeze-ui/lucide-icons';
 	import SectionScrollSpy from '$lib/components/SectionScrollSpy.svelte';
 	import HomeImage from '$lib/assets/HomeImage.png';
@@ -423,6 +426,147 @@
 							<li>One-size-fits-all approach</li>
 							<li>Broad patient flow, not discharge-focused</li>
 						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section
+		id="social-theory"
+		class="scroll-my-28 py-16 bg-white"
+		aria-labelledby="social-theory-heading"
+	>
+		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+			<h1 id="social-theory-heading" class="text-4xl font-medium text-navy">
+				Application of Social Theories
+			</h1>
+		</div>
+	</section>
+	<section id="impact" class="scroll-my-28 py-16 bg-sky" aria-labelledby="impact-heading">
+		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+			<h1 id="impact-heading" class="text-4xl font-medium text-navy">Expected Impact</h1>
+			<p class="mt-4 max-w-prose text-center text-gray">
+				Transforming hospital operations and improving patient outcomes
+			</p>
+			<div class="mt-12 grid grid-cols-2 gap-8">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+					<div class="flex flex-row mb-2 gap-3">
+						<Icon src={Building} class="h-8 w-8 text-blue" />
+						<span class="text-navy text-2xl font-medium">Organizational Impact</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Improved Coordination</span>
+							<span class="text-gray"
+								>All stakeholders have shared visibility into discharge status and pending tasks</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Faster Discharge Processing</span>
+							<span class="text-gray"
+								>Reduced delays through proactive task management and bottleneck identification</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Better Discharge Readiness</span>
+							<span class="text-gray"
+								>Clear visibility into patient readiness prevents last-minute scrambling</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Reduced Administrative Burden</span>
+							<span class="text-gray"
+								>Less time spent on manual coordination and status updates</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Data-Driven Insights</span>
+							<span class="text-gray"
+								>Analytics on discharge patterns help identify systemic improvements</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Standardized Processes</span>
+							<span class="text-gray"
+								>Consistent workflows across units reduce variation and errors</span
+							>
+						</div>
+					</div>
+				</div>
+				<div class="p-8 border-2 border-[#059669] rounded-2xl gap-4 flex flex-col bg-white">
+					<div class="flex flex-row mb-2 gap-3">
+						<Icon src={Building} class="h-8 w-8 text-[#059669]" />
+						<span class="text-navy text-2xl font-medium">Societal Impact</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Better Patient Transitions</span>
+							<span class="text-gray"
+								>Smoother handoffs to home care, rehab facilities, or outpatient services</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Lower Readmission Risk</span>
+							<span class="text-gray"
+								>Proper discharge planning reduces preventable hospital readmissions</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">More Equitable Care Processes</span>
+							<span class="text-gray"
+								>Standardized workflows ensure all patients receive consistent discharge support</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Improved Patient Satisfaction</span>
+							<span class="text-gray"
+								>Clear communication and timely discharges enhance patient experience</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Reduced Healthcare Costs</span>
+							<span class="text-gray"
+								>Shorter stays and fewer readmissions lower overall healthcare expenditure</span
+							>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-green" />
+						<div class="flex flex-col">
+							<span class="text-navy">Community Health Benefits</span>
+							<span class="text-gray"
+								>Better aftercare coordination improves long-term health outcomes</span
+							>
+						</div>
 					</div>
 				</div>
 			</div>
