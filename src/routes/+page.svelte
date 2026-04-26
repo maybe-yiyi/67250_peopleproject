@@ -24,6 +24,10 @@
 	} from '@steeze-ui/lucide-icons';
 	import SectionScrollSpy from '$lib/components/SectionScrollSpy.svelte';
 	import HomeImage from '$lib/assets/HomeImage.png';
+	import AddisonImage from '$lib/assets/addison.jpg';
+	import SunnyImage from '$lib/assets/sunny.jpg';
+	import IsabellaImage from '$lib/assets/isabella.jpg';
+	import YiyoungImage from '$lib/assets/yiyoung.jpg';
 </script>
 
 <SectionScrollSpy />
@@ -815,6 +819,92 @@
 			<p class="mt-4 max-w-prose text-center text-gray">
 				A multidisciplinary team approach to comprehensive systems analysis
 			</p>
+			<div class="mt-12 grid grid-cols-2 w-full gap-8">
+				<div class="bg-white rounded-md px-9 py-8 flex flex-col border-l-4 border-[#2563eb] gap-4">
+					<div class="flex flex-row gap-4">
+						<img src={AddisonImage} alt="addison" class="h-16 w-16 rounded-full" />
+						<div class="flex flex-col gap-1">
+							<span class="text-xl font-medium text-navy">Addison Cho</span>
+							<span class="text-gray">Product and Project Lead</span>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#2563eb]" />
+						<span class="text-gray">Product design and research</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#2563eb]" />
+						<span class="text-gray">Overall project coordination</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#2563eb]" />
+						<span class="text-gray">Social theory application</span>
+					</div>
+				</div>
+				<div class="bg-white rounded-md px-9 py-8 flex flex-col border-l-4 border-[#7c3aed] gap-4">
+					<div class="flex flex-row gap-4">
+						<img src={SunnyImage} alt="sunny" class="h-16 w-16 rounded-full" />
+						<div class="flex flex-col gap-1">
+							<span class="text-xl font-medium text-navy">Sunny Guo</span>
+							<span class="text-gray">UX Lead</span>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#7c3aed]" />
+						<span class="text-gray">Wireframe and mockup creation</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#7c3aed]" />
+						<span class="text-gray">Visual design and presentation</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#7c3aed]" />
+						<span class="text-gray">Technical documentation</span>
+					</div>
+				</div>
+				<div class="bg-white rounded-md px-9 py-8 flex flex-col border-l-4 border-[#0891b2] gap-4">
+					<div class="flex flex-row gap-4">
+						<img src={IsabellaImage} alt="isabella" class="h-16 w-16 rounded-full" />
+						<div class="flex flex-col gap-1">
+							<span class="text-xl font-medium text-navy">Isabella Hu</span>
+							<span class="text-gray">Business Analyst</span>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#0891b2]" />
+						<span class="text-gray">Strategic analysis and competitive positioning</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#0891b2]" />
+						<span class="text-gray">Cultural and institutional analysis</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#0891b2]" />
+						<span class="text-gray">Change management recommendations</span>
+					</div>
+				</div>
+				<div class="bg-white rounded-md px-9 py-8 flex flex-col border-l-4 border-[#2563eb] gap-4">
+					<div class="flex flex-row gap-4">
+						<img src={YiyoungImage} alt="yiyoung" class="h-16 w-16 rounded-full" />
+						<div class="flex flex-col gap-1">
+							<span class="text-xl font-medium text-navy">Yiyoung Liu</span>
+							<span class="text-gray">Tech Lead</span>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#2563eb]" />
+						<span class="text-gray">Final website development</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#2563eb]" />
+						<span class="text-gray">Expected impact analysis</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<Icon src={CircleCheckBig} class="w-6 h-6 text-[#2563eb]" />
+						<span class="text-gray">Feasibility of solution</span>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 </main>
