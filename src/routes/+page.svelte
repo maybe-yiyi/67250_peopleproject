@@ -56,18 +56,20 @@
 					section.
 				</p>
 			</div>
-			<div class="rounded-md border-navy border-2 py-11 px-7 flex-1 min-w-[55%] bg-white mb-20">
+			<div
+				class="rounded-2xl border-navy border-2 py-11 px-7 flex-1 min-w-[55%] bg-white mb-20 shadow-md"
+			>
 				<img src={HomeImage} alt="People using product" class="h-auto w-full" />
 				<div class="grid grid-cols-3 mt-8 gap-22">
-					<div class="rounded-md bg-sky flex flex-col items-center p-3 w-full">
+					<div class="rounded-lg bg-sky flex flex-col items-center p-3 w-full shadow-md">
 						<span class="text-blue text-2xl">32%</span>
 						<span class="text-gray min-w-max whitespace-nowrap">Faster Discharge</span>
 					</div>
-					<div class="rounded-md bg-sky flex flex-col items-center p-3 w-full">
+					<div class="rounded-lg bg-sky flex flex-col items-center p-3 w-full shadow-md">
 						<span class="text-blue text-2xl">+24%</span>
 						<span class="text-gray min-w-max whitespace-nowrap">Increased Coordination</span>
 					</div>
-					<div class="rounded-md bg-sky flex flex-col items-center p-3 w-full">
+					<div class="rounded-lg bg-sky flex flex-col items-center p-3 w-full shadow-md">
 						<span class="text-blue text-2xl">-18%</span>
 						<span class="text-gray min-w-max whitespace-nowrap">Readmission Rate</span>
 					</div>
@@ -84,40 +86,40 @@
 				individual negligence
 			</p>
 			<div class="grid grid-cols-3 my-14 gap-6">
-				<div class="bg-sky rounded-md px-7 py-6 flex flex-col border-l-4 border-blue">
+				<div class="bg-sky rounded-2xl px-7 py-6 flex flex-col border-l-4 border-blue shadow-md">
 					<Icon src={FileX} class="h-10 w-10 [stroke-width:2] text-blue mb-2" />
 					<span class="text-navy text-lg my-2">Fragmented Systems</span>
 					<span class="text-gray"
 						>Multiple disconnected tools create information silos across departments</span
 					>
 				</div>
-				<div class="bg-sky rounded-md px-7 py-6 flex flex-col border-l-4 border-blue">
+				<div class="bg-sky rounded-2xl px-7 py-6 flex flex-col border-l-4 border-blue shadow-md">
 					<Icon src={TriangleAlert} class="h-10 w-10 [stroke-width:2] text-blue mb-2" />
 					<span class="text-navy text-lg my-2">Incomplete Information</span>
 					<span class="text-gray"
 						>Delayed or missing patient data slows discharge planning decisions</span
 					>
 				</div>
-				<div class="bg-sky rounded-md px-7 py-6 flex flex-col border-l-4 border-blue">
+				<div class="bg-sky rounded-2xl px-7 py-6 flex flex-col border-l-4 border-blue shadow-md">
 					<Icon src={MessageSquareX} class="h-10 w-10 [stroke-width:2] text-blue mb-2" />
 					<span class="text-navy text-lg my-2">Poor Coordination</span>
 					<span class="text-gray"
 						>Limited communication between nurses, physicians, and case managers</span
 					>
 				</div>
-				<div class="bg-sky rounded-md px-7 py-6 flex flex-col border-l-4 border-blue">
+				<div class="bg-sky rounded-2xl px-7 py-6 flex flex-col border-l-4 border-blue shadow-md">
 					<Icon src={ClipboardX} class="h-10 w-10 [stroke-width:2] text-blue mb-2" />
 					<span class="text-navy text-lg my-2">Inconsistent Procedures</span>
 					<span class="text-gray"
 						>No standardized discharge planning workflow across hospital units</span
 					>
 				</div>
-				<div class="bg-sky rounded-md px-7 py-6 flex flex-col border-l-4 border-blue">
+				<div class="bg-sky rounded-2xl px-7 py-6 flex flex-col border-l-4 border-blue shadow-md">
 					<Icon src={Eye} class="h-10 w-10 [stroke-width:2] text-blue mb-2" />
 					<span class="text-navy text-lg my-2">Lack of Visibility</span>
 					<span class="text-gray">No real-time overview of discharge status and bottlenecks</span>
 				</div>
-				<div class="bg-sky rounded-md px-7 py-6 flex flex-col border-l-4 border-blue">
+				<div class="bg-sky rounded-2xl px-7 py-6 flex flex-col border-l-4 border-blue shadow-md">
 					<Icon src={Users} class="h-10 w-10 [stroke-width:2] text-blue mb-2" />
 					<span class="text-navy text-lg my-2">Unclear Ownership</span>
 					<span class="text-gray"
@@ -125,7 +127,7 @@
 					>
 				</div>
 			</div>
-			<div class="rounded-lg bg-navy w-full flex flex-col items-center p-8">
+			<div class="rounded-2xl bg-navy w-full flex flex-col items-center p-8">
 				<span class="text-white text-2xl">Key Stakeholders Affected</span>
 				<div class="flex flex-row justify-between gap-7 mt-6">
 					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Nurses</div>
@@ -147,8 +149,10 @@
 				outcomes
 			</p>
 			<div class="grid grid-cols-2 my-14 gap-6">
-				<div class="bg-white rounded-md px-9 py-8 flex flex-row border-l-4 border-red gap-4">
-					<div class="bg-red/8 p-3 rounded-md h-fit">
+				<div
+					class="bg-white rounded-2xl px-9 py-8 flex flex-row border-l-4 border-red gap-4 shadow-md"
+				>
+					<div class="bg-red/8 p-3 rounded-lg h-fit">
 						<Icon src={FileX} class="h-8 w-8 [stroke-width:2] text-red" />
 					</div>
 					<div class="flex flex-col">
@@ -158,8 +162,10 @@
 						>
 					</div>
 				</div>
-				<div class="bg-white rounded-md px-9 py-8 flex flex-row border-l-4 border-yellow gap-4">
-					<div class="bg-yellow/8 p-3 rounded-md h-fit">
+				<div
+					class="bg-white rounded-2xl px-9 py-8 flex flex-row border-l-4 border-yellow gap-4 shadow-md"
+				>
+					<div class="bg-yellow/8 p-3 rounded-lg h-fit">
 						<Icon src={FileX} class="h-8 w-8 [stroke-width:2] text-yellow" />
 					</div>
 					<div class="flex flex-col">
@@ -170,8 +176,10 @@
 						>
 					</div>
 				</div>
-				<div class="bg-white rounded-md px-9 py-8 flex flex-row border-l-4 border-red gap-4">
-					<div class="bg-red/8 p-3 rounded-md h-fit">
+				<div
+					class="bg-white rounded-2xl px-9 py-8 flex flex-row border-l-4 border-red gap-4 shadow-md"
+				>
+					<div class="bg-red/8 p-3 rounded-lg h-fit">
 						<Icon src={FileX} class="h-8 w-8 [stroke-width:2] text-red" />
 					</div>
 					<div class="flex flex-col">
@@ -180,8 +188,10 @@
 						<span class="text-gray">Of readmissions linked to inadequate discharge planning</span>
 					</div>
 				</div>
-				<div class="bg-white rounded-md px-9 py-8 flex flex-row border-l-4 border-yellow gap-4">
-					<div class="bg-yellow/8 p-3 rounded-md h-fit">
+				<div
+					class="bg-white rounded-2xl px-9 py-8 flex flex-row border-l-4 border-yellow gap-4 shadow-md"
+				>
+					<div class="bg-yellow/8 p-3 rounded-lg h-fit">
 						<Icon src={FileX} class="h-8 w-8 [stroke-width:2] text-yellow" />
 					</div>
 					<div class="flex flex-col">
@@ -222,7 +232,7 @@
 				A unified digital discharge coordination platform designed for smaller hospital environments
 			</p>
 			<div
-				class="rounded-lg bg-navy w-full flex flex-row justify-between mt-12 items-center p-8 gap-8 bg-gradient-to-r from-navy to-blue"
+				class="rounded-2xl bg-navy w-full flex flex-row justify-between mt-12 items-center p-8 gap-8 bg-gradient-to-r from-navy to-blue"
 			>
 				<div class="flex flex-col gap-2 items-center">
 					<span class="text-white text-4xl">Single Platform</span>
@@ -238,8 +248,10 @@
 				</div>
 			</div>
 			<div class="grid grid-cols-2 my-14 gap-6">
-				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
-					<div class="bg-blue p-3 rounded-md h-fit">
+				<div
+					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
+				>
+					<div class="bg-blue p-3 rounded-lg h-fit">
 						<Icon src={Calendar} class="h-8 w-8 [stroke-width:2] text-white" />
 					</div>
 					<div class="flex flex-col gap-2">
@@ -247,11 +259,15 @@
 						<span class="text-gray"
 							>Real-time visibility into projected discharge timelines for all patients</span
 						>
-						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">All Staff</div>
+						<div class="text-sm bg-white text-blue rounded-lg py-1 px-3 w-fit shadow-md">
+							All Staff
+						</div>
 					</div>
 				</div>
-				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
-					<div class="bg-blue p-3 rounded-md h-fit">
+				<div
+					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
+				>
+					<div class="bg-blue p-3 rounded-lg h-fit">
 						<Icon src={LayoutDashboard} class="h-8 w-8 [stroke-width:2] text-white" />
 					</div>
 					<div class="flex flex-col gap-2">
@@ -259,13 +275,15 @@
 						<span class="text-gray"
 							>Unified view of patient journey from admission to discharge</span
 						>
-						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">
+						<div class="text-sm bg-white text-blue rounded-lg py-1 px-3 w-fit shadow-md">
 							Physicians and Nurses
 						</div>
 					</div>
 				</div>
-				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
-					<div class="bg-blue p-3 rounded-md h-fit">
+				<div
+					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
+				>
+					<div class="bg-blue p-3 rounded-lg h-fit">
 						<Icon src={ListChecks} class="h-8 w-8 [stroke-width:2] text-white" />
 					</div>
 					<div class="flex flex-col gap-2">
@@ -273,13 +291,15 @@
 						<span class="text-gray"
 							>Role-specific task assignments for nurses, physicians, and case managers</span
 						>
-						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">
+						<div class="text-sm bg-white text-blue rounded-lg py-1 px-3 w-fit shadow-md">
 							All Disciplines
 						</div>
 					</div>
 				</div>
-				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
-					<div class="bg-blue p-3 rounded-md h-fit">
+				<div
+					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
+				>
+					<div class="bg-blue p-3 rounded-lg h-fit">
 						<Icon src={Bell} class="h-8 w-8 [stroke-width:2] text-white" />
 					</div>
 					<div class="flex flex-col gap-2">
@@ -287,11 +307,15 @@
 						<span class="text-gray"
 							>Priority notifications for critical discharge milestones and blockers</span
 						>
-						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">Case Managers</div>
+						<div class="text-sm bg-white text-blue rounded-lg py-1 px-3 w-fit shadow-md">
+							Case Managers
+						</div>
 					</div>
 				</div>
-				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
-					<div class="bg-blue p-3 rounded-md h-fit">
+				<div
+					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
+				>
+					<div class="bg-blue p-3 rounded-lg h-fit">
 						<Icon src={Network} class="h-8 w-8 [stroke-width:2] text-white" />
 					</div>
 					<div class="flex flex-col gap-2">
@@ -299,11 +323,15 @@
 						<span class="text-gray"
 							>Streamlined matching with post-discharge services and resources</span
 						>
-						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">Social Workers</div>
+						<div class="text-sm bg-white text-blue rounded-lg py-1 px-3 w-fit shadow-md">
+							Social Workers
+						</div>
 					</div>
 				</div>
-				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
-					<div class="bg-blue p-3 rounded-md h-fit">
+				<div
+					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
+				>
+					<div class="bg-blue p-3 rounded-lg h-fit">
 						<Icon src={User} class="h-8 w-8 [stroke-width:2] text-white" />
 					</div>
 					<div class="flex flex-col gap-2">
@@ -311,12 +339,14 @@
 						<span class="text-gray"
 							>Customized interfaces for different stakeholder perspectives</span
 						>
-						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">Administrators</div>
+						<div class="text-sm bg-white text-blue rounded-lg py-1 px-3 w-fit shadow-md">
+							Administrators
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="text-navy text-4xl font-medium">Wireframe</div>
-			<div class="rounded-lg bg-navy w-full flex flex-col items-center p-8">
+			<div class="rounded-2xl bg-navy w-full flex flex-col items-center p-8">
 				<span class="text-white text-2xl font-medium">System Benefits</span>
 				<div class="flex flex-row justify-between gap-7 mt-6">
 					<div class="text-white flex flex-col items-center px-5 py-3 gap-2">
@@ -350,7 +380,7 @@
 				Value creation through targeted process improvement and competitive positioning
 			</p>
 			<div class="mt-12 grid grid-cols-2 gap-8">
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white shadow-sm">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Target} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium">Business Strategy</span>
@@ -405,7 +435,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white shadow-sm">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Layers} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium">Business Model</span>
@@ -425,43 +455,43 @@
 						<li>Flat pricing per patient</li>
 					</ul>
 				</div>
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white shadow-sm">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Layers} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium">Value Chain</span>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Patient Admission</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Capture baseline discharge data</span>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Clinical Assessment</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Document barriers and needs</span>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Care Planning</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Set EDD and assign tasks</span>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Daily Coordination</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Track progress and escalate issues</span>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Discharge Execution</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Complete final requirements</span>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Post-Discharge</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Monitor transitions and outcomes</span>
 					</div>
 				</div>
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white shadow-sm">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Target} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium"
@@ -486,7 +516,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white shadow-sm">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Target} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium">Long-term Growth</span>
@@ -525,12 +555,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white shadow-sm">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Layers} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium">Who Benefits and Why</span>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Clinicians</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray"
@@ -539,7 +569,7 @@
 							care team on same page</span
 						>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Patients</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray"
@@ -547,7 +577,7 @@
 							keeps them informed throughout process, increases patient autonomy/decision-making</span
 						>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
 						<span class="text-blue">Society</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray"
@@ -598,10 +628,10 @@
 				Understanding the human and organizational dynamics behind discharge planning failures
 			</p>
 			<div
-				class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white mt-16 w-full"
+				class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white mt-16 w-full shadow-sm"
 			>
 				<div class="flex flex-row mb-2 gap-3 items-center">
-					<div class="p-4 bg-sky rounded-lg">
+					<div class="p-4 bg-sky rounded-lg shadow-md">
 						<Icon src={Brain} class="h-8 w-8 text-blue" />
 					</div>
 					<span class="text-navy text-2xl font-medium">Bounded Rationality</span>
@@ -613,7 +643,7 @@
 						capacity</span
 					>
 				</div>
-				<div class="bg-red/8 rounded-md px-7 py-6 flex flex-row border-l-4 border-red gap-4">
+				<div class="bg-red/8 rounded-2xl px-7 py-6 flex flex-row border-l-4 border-red gap-4">
 					<div class="flex flex-col">
 						<span class="text-navy font-bold">The Problem (Without Technology)</span>
 						<span class="text-gray"
@@ -626,7 +656,7 @@
 						>
 					</div>
 				</div>
-				<div class="bg-green/8 rounded-md px-7 py-6 flex flex-row border-l-4 border-green gap-4">
+				<div class="bg-green/8 rounded-2xl px-7 py-6 flex flex-row border-l-4 border-green gap-4">
 					<div class="flex flex-col">
 						<span class="text-navy font-bold">How FlowState Addresses This</span>
 						<span class="text-gray"
@@ -639,10 +669,10 @@
 				</div>
 			</div>
 			<div
-				class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white mt-16 w-full"
+				class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white mt-16 w-full shadow-sm"
 			>
 				<div class="flex flex-row mb-2 gap-3 items-center">
-					<div class="p-4 bg-sky rounded-lg">
+					<div class="p-4 bg-sky rounded-lg shadow-md">
 						<Icon src={Network} class="h-8 w-8 text-blue" />
 					</div>
 					<span class="text-navy text-2xl font-medium">Socio-Technical Systems Theory</span>
@@ -653,7 +683,7 @@
 						>Technical and social subsystems must be jointly optimized for effective performance</span
 					>
 				</div>
-				<div class="bg-red/8 rounded-md px-7 py-6 flex flex-row border-l-4 border-red gap-4">
+				<div class="bg-red/8 rounded-2xl px-7 py-6 flex flex-row border-l-4 border-red gap-4">
 					<div class="flex flex-col">
 						<span class="text-navy font-bold">The Problem (Without Technology)</span>
 						<span class="text-gray"
@@ -667,7 +697,7 @@
 						>
 					</div>
 				</div>
-				<div class="bg-green/8 rounded-md px-7 py-6 flex flex-row border-l-4 border-green gap-4">
+				<div class="bg-green/8 rounded-2xl px-7 py-6 flex flex-row border-l-4 border-green gap-4">
 					<div class="flex flex-col">
 						<span class="text-navy font-bold">How FlowState Addresses This</span>
 						<span class="text-gray"
@@ -690,7 +720,7 @@
 				Transforming hospital operations and improving patient outcomes
 			</p>
 			<div class="mt-12 grid grid-cols-2 gap-8">
-				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white shadow-md">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Building} class="h-8 w-8 text-blue" />
 						<span class="text-navy text-2xl font-medium">Organizational Impact</span>
@@ -750,7 +780,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="p-8 border-2 border-[#059669] rounded-2xl gap-4 flex flex-col bg-white">
+				<div
+					class="p-8 border-2 border-[#059669] rounded-2xl gap-4 flex flex-col bg-white shadow-md"
+				>
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Globe} class="h-8 w-8 text-[#059669]" />
 						<span class="text-navy text-2xl font-medium">Societal Impact</span>
@@ -820,7 +852,9 @@
 				A multidisciplinary team approach to comprehensive systems analysis
 			</p>
 			<div class="mt-12 grid grid-cols-2 w-full gap-8">
-				<div class="bg-white rounded-md px-9 py-8 flex flex-col border-l-4 border-[#2563eb] gap-4">
+				<div
+					class="bg-white rounded-2xl px-9 py-8 flex flex-col border-l-4 border-[#2563eb] gap-4 shadow-sm"
+				>
 					<div class="flex flex-row gap-4">
 						<img src={AddisonImage} alt="addison" class="h-16 w-16 rounded-full" />
 						<div class="flex flex-col gap-1">
@@ -841,7 +875,9 @@
 						<span class="text-gray">Social theory application</span>
 					</div>
 				</div>
-				<div class="bg-white rounded-md px-9 py-8 flex flex-col border-l-4 border-[#7c3aed] gap-4">
+				<div
+					class="bg-white rounded-2xl px-9 py-8 flex flex-col border-l-4 border-[#7c3aed] gap-4 shadow-sm"
+				>
 					<div class="flex flex-row gap-4">
 						<img src={SunnyImage} alt="sunny" class="h-16 w-16 rounded-full" />
 						<div class="flex flex-col gap-1">
@@ -862,7 +898,9 @@
 						<span class="text-gray">Technical documentation</span>
 					</div>
 				</div>
-				<div class="bg-white rounded-md px-9 py-8 flex flex-col border-l-4 border-[#0891b2] gap-4">
+				<div
+					class="bg-white rounded-2xl px-9 py-8 flex flex-col border-l-4 border-[#0891b2] gap-4 shadow-sm"
+				>
 					<div class="flex flex-row gap-4">
 						<img src={IsabellaImage} alt="isabella" class="h-16 w-16 rounded-full" />
 						<div class="flex flex-col gap-1">
@@ -883,7 +921,9 @@
 						<span class="text-gray">Change management recommendations</span>
 					</div>
 				</div>
-				<div class="bg-white rounded-md px-9 py-8 flex flex-col border-l-4 border-[#2563eb] gap-4">
+				<div
+					class="bg-white rounded-2xl px-9 py-8 flex flex-col border-l-4 border-[#2563eb] gap-4 shadow-sm"
+				>
 					<div class="flex flex-row gap-4">
 						<img src={YiyoungImage} alt="yiyoung" class="h-16 w-16 rounded-full" />
 						<div class="flex flex-col gap-1">

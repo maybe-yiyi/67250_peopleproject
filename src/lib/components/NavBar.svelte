@@ -29,7 +29,7 @@
 	{#each links as { sectionId, label } (sectionId)}
 		<a
 			href={hrefForSection(sectionId)}
-			class="inline-flex items-center rounded-md px-3 py-2 text-base font-medium text-navy transition-colors hover:bg-sky hover:text-blue"
+			class="inline-flex items-center rounded-lg px-3 py-2 text-base font-medium text-navy transition-colors hover:bg-sky hover:text-blue"
 			class:bg-blue={page.route.id === '/' && $activeSectionId === sectionId}
 			class:text-white={page.route.id === '/' && $activeSectionId === sectionId}
 			aria-current={page.route.id === '/' && $activeSectionId === sectionId ? 'page' : undefined}
