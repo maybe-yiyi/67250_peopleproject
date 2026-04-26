@@ -72,7 +72,7 @@
 
 	<section id="problem" class="scroll-my-28 py-20" aria-labelledby="problem-heading">
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
-			<h1 id="problem-heading" class="text-4xl font-medium text-navy">Problem & Context</h1>
+			<h1 id="problem-heading" class="text-4xl font-medium text-navy">Problem and Context</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
 				Discharge delays in smaller hospitals stem from systemic coordination failures, not
 				individual negligence
@@ -254,7 +254,7 @@
 							>Unified view of patient journey from admission to discharge</span
 						>
 						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">
-							Physicians & Nurses
+							Physicians and Nurses
 						</div>
 					</div>
 				</div>
@@ -335,36 +335,67 @@
 				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Target} class="h-8 w-8 text-blue" />
-						<span class="text-navy text-2xl font-medium">Value Creation</span>
+						<span class="text-navy text-2xl font-medium">Business Strategy</span>
 					</div>
 					<div class="flex flex-row gap-3">
 						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">1</div>
 						<div class="flex flex-col">
-							<span class="text-navy">Operational Efficiency</span>
-							<span class="text-gray">Reduce coordination overhead and administrative burden</span>
+							<span class="text-navy">Affordable</span>
+							<span class="text-gray"
+								>Smaller, specialized software bundle for smaller hospitals</span
+							>
 						</div>
 					</div>
 					<div class="flex flex-row gap-3">
 						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">2</div>
 						<div class="flex flex-col">
-							<span class="text-navy">Clinical Outcomes</span>
-							<span class="text-gray">Improve patient safety and reduce readmission rates</span>
+							<span class="text-navy">Modular</span>
+							<span class="text-gray">Able to integrate into existing legacy systems </span>
 						</div>
 					</div>
 					<div class="flex flex-row gap-3">
 						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">3</div>
 						<div class="flex flex-col">
-							<span class="text-navy">Resource Utilization</span>
-							<span class="text-gray">Free up beds faster and optimize capacity</span>
+							<span class="text-navy">Lightweight</span>
+							<span class="text-gray">Easy to use and flexible options for integration </span>
 						</div>
 					</div>
 					<div class="flex flex-row gap-3">
 						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">4</div>
 						<div class="flex flex-col">
-							<span class="text-navy">Staff Satisfaction</span>
-							<span class="text-gray">Reduce frustration from manual coordination</span>
+							<span class="text-navy">Holistic</span>
+							<span class="text-gray">Provides transparency and trust with patient view</span>
 						</div>
 					</div>
+					<div class="flex flex-row gap-3">
+						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">5</div>
+						<div class="flex flex-col">
+							<span class="text-navy">AI-powered</span>
+							<span class="text-gray"
+								>Allows for personalized, actionable insights and faster decision-making</span
+							>
+						</div>
+					</div>
+				</div>
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+					<div class="flex flex-row mb-2 gap-3">
+						<Icon src={Layers} class="h-8 w-8 text-blue" />
+						<span class="text-navy text-2xl font-medium">Business Model</span>
+					</div>
+					<ul class="list-disc list-inside text-gray marker:text-red space-y-4">
+						<li>Primary Customer: smaller, under-resourced hospitals</li>
+						<li>
+							Partnerships with common legacy systems in target hospitals, such as MEDITECH,
+							Practice Fusion, Athena One
+						</li>
+						<li>24/7 Customer Support and support in implementation process</li>
+						<li>Training, onboarding, pilot programs, internally driven adoption</li>
+						<li>
+							Sold as Software as a Service (SaaS), owned by us but hospitals use and integrate the
+							service
+						</li>
+						<li>Flat pricing per patient</li>
+					</ul>
 				</div>
 				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white">
 					<div class="flex flex-row mb-2 gap-3">
@@ -400,6 +431,97 @@
 						<span class="text-blue">Post-Discharge</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Monitor transitions and outcomes</span>
+					</div>
+				</div>
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+					<div class="flex flex-row mb-2 gap-3">
+						<Icon src={Target} class="h-8 w-8 text-blue" />
+						<span class="text-navy text-2xl font-medium"
+							>Value Creation / Organizational Effectiveness</span
+						>
+					</div>
+					<ul class="list-disc list-inside text-gray marker:text-red space-y-4">
+						<li>
+							Using AI for predictive, personalization, and summary → faster-decision making, making
+							data assets actionable
+						</li>
+						<li>Data network effects over time (predictions improve with more data)</li>
+						<li>
+							Usable for clinicians, patients → centralized/shared source of information, no
+							multiple views which reduces room for error, miscommunication, duplication,
+							conflicting priorities
+						</li>
+						<li>
+							Process standardization: instead of relying on memory or inconsistent habits, the
+							system enforces, required steps, sequencing of tasks, accountability) → replicable,
+							repeatable process also standardizes care quality
+						</li>
+					</ul>
+				</div>
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white">
+					<div class="flex flex-row mb-2 gap-3">
+						<Icon src={Target} class="h-8 w-8 text-blue" />
+						<span class="text-navy text-2xl font-medium">Long-term Growth</span>
+					</div>
+					<div class="flex flex-row gap-3">
+						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">1</div>
+						<div class="flex flex-col">
+							<span class="text-navy">Sustainability</span>
+							<ol class="list-decimal list-inside space-y-2 text-gray">
+								<li>Low cost due to narrower scope</li>
+								<li>Integration or standalone strategy</li>
+								<li>
+									Embedded in workflows, high retention once adopted → barrier may be workflow
+									disruption, hence the heavily supported implementation process as part of our
+									model
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="flex flex-row gap-3">
+						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">2</div>
+						<div class="flex flex-col">
+							<span class="text-navy">Modular</span>
+							<ol class="list-decimal list-inside space-y-2 text-gray">
+								<li>
+									Horizontal expansion (expanding to other hospitals, replicable, similar discharge
+									logic)
+								</li>
+								<li>Opportunity to go white label</li>
+								<li>Vertical expansion opportunity to readmission and admissions</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<div class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white">
+					<div class="flex flex-row mb-2 gap-3">
+						<Icon src={Layers} class="h-8 w-8 text-blue" />
+						<span class="text-navy text-2xl font-medium">Who Benefits and Why</span>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Clinicians</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray"
+							>reduces burnout and administrative/cognitive load, easy to track patient to patient
+							with centralized dashboard improves communication between departments, puts entire
+							care team on same page</span
+						>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Patients</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray"
+							>reduces length of hospital stay which in turn reduces hospital bills, transparency
+							keeps them informed throughout process, increases patient autonomy/decision-making</span
+						>
+					</div>
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky">
+						<span class="text-blue">Society</span>
+						<span class="text-gray-400">→</span>
+						<span class="text-gray"
+							>more people can get the care they need, optimizes hospital capacity management,
+							better quality care, more affordable care, more efficient healthcare system</span
+						>
 					</div>
 				</div>
 			</div>
