@@ -338,7 +338,9 @@
 						<span class="text-navy text-2xl font-medium">Business Strategy</span>
 					</div>
 					<div class="flex flex-row gap-3">
-						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">1</div>
+						<div class="w-6 h-6 shrink-0 rounded-full bg-blue text-white flex justify-center">
+							1
+						</div>
 						<div class="flex flex-col">
 							<span class="text-navy">Affordable</span>
 							<span class="text-gray"
@@ -347,28 +349,36 @@
 						</div>
 					</div>
 					<div class="flex flex-row gap-3">
-						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">2</div>
+						<div class="w-6 h-6 shrink-0 rounded-full bg-blue text-white flex justify-center">
+							2
+						</div>
 						<div class="flex flex-col">
 							<span class="text-navy">Modular</span>
 							<span class="text-gray">Able to integrate into existing legacy systems </span>
 						</div>
 					</div>
 					<div class="flex flex-row gap-3">
-						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">3</div>
+						<div class="w-6 h-6 shrink-0 rounded-full bg-blue text-white flex justify-center">
+							3
+						</div>
 						<div class="flex flex-col">
 							<span class="text-navy">Lightweight</span>
 							<span class="text-gray">Easy to use and flexible options for integration </span>
 						</div>
 					</div>
 					<div class="flex flex-row gap-3">
-						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">4</div>
+						<div class="w-6 h-6 shrink-0 rounded-full bg-blue text-white flex justify-center">
+							4
+						</div>
 						<div class="flex flex-col">
 							<span class="text-navy">Holistic</span>
 							<span class="text-gray">Provides transparency and trust with patient view</span>
 						</div>
 					</div>
 					<div class="flex flex-row gap-3">
-						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">5</div>
+						<div class="w-6 h-6 shrink-0 rounded-full bg-blue text-white flex justify-center">
+							5
+						</div>
 						<div class="flex flex-col">
 							<span class="text-navy">AI-powered</span>
 							<span class="text-gray"
@@ -464,7 +474,9 @@
 						<span class="text-navy text-2xl font-medium">Long-term Growth</span>
 					</div>
 					<div class="flex flex-row gap-3">
-						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">1</div>
+						<div class="w-6 h-6 shrink-0 rounded-full bg-blue text-white flex justify-center">
+							1
+						</div>
 						<div class="flex flex-col">
 							<span class="text-navy">Sustainability</span>
 							<ol class="list-decimal list-inside space-y-2 text-gray">
@@ -479,7 +491,9 @@
 						</div>
 					</div>
 					<div class="flex flex-row gap-3">
-						<div class="w-6 h-6 rounded-full bg-blue text-white flex justify-center">2</div>
+						<div class="w-6 h-6 shrink-0 rounded-full bg-blue text-white flex justify-center">
+							2
+						</div>
 						<div class="flex flex-col">
 							<span class="text-navy">Modular</span>
 							<ol class="list-decimal list-inside space-y-2 text-gray">
