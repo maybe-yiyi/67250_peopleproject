@@ -14,6 +14,8 @@ const config = {
 			precompress: false,
 			strict: true
 		}),
+		// If you deploy the static `build` to a subpath (e.g. GitHub Pages: user.github.io/reponame/),
+		// set env BASE_PATH=/reponame when running `npm run build` or the JS bundle 404s and the site is static HTML only.
 		paths: {
 			base: process.env.BASE_PATH ?? ''
 		}
