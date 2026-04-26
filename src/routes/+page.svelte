@@ -18,7 +18,9 @@
 		TrendingUp,
 		Building,
 		Globe,
-		CircleCheckBig
+		CircleCheckBig,
+		Brain,
+		Network
 	} from '@steeze-ui/lucide-icons';
 	import SectionScrollSpy from '$lib/components/SectionScrollSpy.svelte';
 	import HomeImage from '$lib/assets/HomeImage.png';
@@ -282,6 +284,18 @@
 							>Priority notifications for critical discharge milestones and blockers</span
 						>
 						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">Case Managers</div>
+					</div>
+				</div>
+				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
+					<div class="bg-blue p-3 rounded-md h-fit">
+						<Icon src={Network} class="h-8 w-8 [stroke-width:2] text-white" />
+					</div>
+					<div class="flex flex-col gap-2">
+						<span class="text-navy text-lg">Aftercare Coordination</span>
+						<span class="text-gray"
+							>Streamlined matching with post-discharge services and resources</span
+						>
+						<div class="text-sm bg-white text-blue rounded-2xl py-1 px-3 w-fit">Social Workers</div>
 					</div>
 				</div>
 				<div class="bg-sky rounded-lg px-9 py-8 flex flex-row border-2 border-blue gap-4">
@@ -576,6 +590,93 @@
 			<h1 id="social-theory-heading" class="text-4xl font-medium text-navy">
 				Application of Social Theories
 			</h1>
+			<p class="mt-4 max-w-prose text-center text-gray">
+				Understanding the human and organizational dynamics behind discharge planning failures
+			</p>
+			<div
+				class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white mt-16 w-full"
+			>
+				<div class="flex flex-row mb-2 gap-3 items-center">
+					<div class="p-4 bg-sky rounded-lg">
+						<Icon src={Brain} class="h-8 w-8 text-blue" />
+					</div>
+					<span class="text-navy text-2xl font-medium">Bounded Rationality</span>
+				</div>
+				<div class="gap-2 flex flex-col">
+					<span class="text-navy font-bold">Core Concept</span>
+					<span class="text-xl text-gray"
+						>People make "good enough" decisions based on limited time, information, and cognitive
+						capacity</span
+					>
+				</div>
+				<div class="bg-red/8 rounded-md px-7 py-6 flex flex-row border-l-4 border-red gap-4">
+					<div class="flex flex-col">
+						<span class="text-navy font-bold">The Problem (Without Technology)</span>
+						<span class="text-gray"
+							>Even though research recommends setting an Estimated Discharge Date (EDD) early in
+							the process, many hospitals fail to do this due to limited time, information, and
+							cognitive capacity. Huddles to discuss discharge status don't help — they're brief,
+							retrospective, and rely on whoever happens to have the most current information in the
+							room, which is rarely complete. Staff are forced to make "good enough" decisions based
+							on incomplete pictures of where a patient actually stands.</span
+						>
+					</div>
+				</div>
+				<div class="bg-green/8 rounded-md px-7 py-6 flex flex-row border-l-4 border-green gap-4">
+					<div class="flex flex-col">
+						<span class="text-navy font-bold">How FlowState Addresses This</span>
+						<span class="text-gray"
+							>FlowState's predictive assistant moves from "good enough" to "optimal" by aggregating
+							task-level data across all departments in real time and surfacing a data-informed EDD
+							early — reducing the cognitive load on any single individual and replacing
+							intuition-based estimates with a shared, continuously updated forecast.</span
+						>
+					</div>
+				</div>
+			</div>
+			<div
+				class="p-8 border-2 border-blue rounded-2xl gap-4 grid grid-cols-1 bg-white mt-16 w-full"
+			>
+				<div class="flex flex-row mb-2 gap-3 items-center">
+					<div class="p-4 bg-sky rounded-lg">
+						<Icon src={Network} class="h-8 w-8 text-blue" />
+					</div>
+					<span class="text-navy text-2xl font-medium">Socio-Technical Systems Theory</span>
+				</div>
+				<div class="gap-2 flex flex-col">
+					<span class="text-navy font-bold">Core Concept</span>
+					<span class="text-xl text-gray"
+						>Technical and social subsystems must be jointly optimized for effective performance</span
+					>
+				</div>
+				<div class="bg-red/8 rounded-md px-7 py-6 flex flex-row border-l-4 border-red gap-4">
+					<div class="flex flex-col">
+						<span class="text-navy font-bold">The Problem (Without Technology)</span>
+						<span class="text-gray"
+							>Two main social systems are in play: collaboration between workers in the hospital
+							and communication to patients. Without technology, workers between departments tend to
+							have "huddle" meetings daily where they spend limited time — just a few minutes — to
+							figure out what the bottlenecks are and where the patient is in the flow. Without
+							technology, the patient is left in the dark until discussions with their nurse or
+							physician — and even then, the information is secondhand, filtered, and often out of
+							date.</span
+						>
+					</div>
+				</div>
+				<div class="bg-green/8 rounded-md px-7 py-6 flex flex-row border-l-4 border-green gap-4">
+					<div class="flex flex-col">
+						<span class="text-navy font-bold">How FlowState Addresses This</span>
+						<span class="text-gray"
+							>With FlowState, huddles become more targeted and productive: instead of using that
+							time to surface information, teams arrive already oriented to the critical path and
+							can focus on decision-making and problem-solving. FlowState's patient-facing UI gives
+							patients a simplified, real-time view of their discharge checklist — not clinical
+							detail, but enough to answer the question they actually have: where do things stand,
+							and what comes next?</span
+						>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	<section id="impact" class="scroll-my-28 py-16 bg-sky" aria-labelledby="impact-heading">
@@ -647,7 +748,7 @@
 				</div>
 				<div class="p-8 border-2 border-[#059669] rounded-2xl gap-4 flex flex-col bg-white">
 					<div class="flex flex-row mb-2 gap-3">
-						<Icon src={Building} class="h-8 w-8 text-[#059669]" />
+						<Icon src={Globe} class="h-8 w-8 text-[#059669]" />
 						<span class="text-navy text-2xl font-medium">Societal Impact</span>
 					</div>
 					<div class="flex flex-row gap-3">
