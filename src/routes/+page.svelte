@@ -23,6 +23,7 @@
 		Network
 	} from '@steeze-ui/lucide-icons';
 	import SectionScrollSpy from '$lib/components/SectionScrollSpy.svelte';
+	import SolutionWireframe from '$lib/components/SolutionWireframe.svelte';
 	import HomeImage from '$lib/assets/HomeImage.png';
 	import AddisonImage from '$lib/assets/addison.jpg';
 	import SunnyImage from '$lib/assets/sunny.jpg';
@@ -345,8 +346,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="text-navy text-4xl font-medium">Wireframe</div>
-			<div class="rounded-2xl bg-navy w-full flex flex-col items-center p-8">
+			<div class="mt-14 flex w-full flex-col items-center gap-4">
+				<h2 class="text-4xl font-medium text-navy">Wireframe</h2>
+				<div class="w-full">
+					<SolutionWireframe />
+				</div>
+			</div>
+			<div class="mt-14 rounded-2xl bg-navy w-full flex flex-col items-center p-8 mt-12">
 				<span class="text-white text-2xl font-medium">System Benefits</span>
 				<div class="flex flex-row justify-between gap-7 mt-6">
 					<div class="text-white flex flex-col items-center px-5 py-3 gap-2">
