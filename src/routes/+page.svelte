@@ -330,22 +330,6 @@
 					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
 				>
 					<div class="bg-blue p-3 rounded-lg h-fit">
-						<Icon src={Network} class="h-8 w-8 [stroke-width:2] text-white" />
-					</div>
-					<div class="flex flex-col gap-2">
-						<span class="text-navy text-lg">Aftercare Coordination</span>
-						<span class="text-gray"
-							>Streamlined matching with post-discharge services and resources</span
-						>
-						<div class="text-sm bg-white text-blue rounded-lg py-1 px-3 w-fit shadow-md">
-							Social Workers
-						</div>
-					</div>
-				</div>
-				<div
-					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
-				>
-					<div class="bg-blue p-3 rounded-lg h-fit">
 						<Icon src={User} class="h-8 w-8 [stroke-width:2] text-white" />
 					</div>
 					<div class="flex flex-col gap-2">
@@ -500,7 +484,7 @@
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Track progress and escalate issues</span>
 					</div>
-					<div class="flex flex-row gap-2 rounded-lg p-3 bg-sky shadow-md">
+					<div class="flex flex-row gap-2 rounded-lg p-3 bg-[#c0dbff] shadow-md">
 						<span class="text-blue">Discharge Execution</span>
 						<span class="text-gray-400">→</span>
 						<span class="text-gray">Complete final requirements</span>

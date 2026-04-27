@@ -1,440 +1,542 @@
 <script lang="ts">
-	type Status = 'on-track' | 'at-risk' | 'delayed';
-
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Bell } from '@steeze-ui/lucide-icons';
 
-	const rows: {
-		name: string;
-		room: string;
-		admission: string;
-		edd: string;
-		bottleneck: string;
-		progress: number;
-		status: Status;
-	}[] = [
+	type ViewMode = 'staff' | 'patient';
+	type StaffScreen = 'list' | 'detail';
+
+	const hospitalName = 'Placeholder Hospital';
+
+	const stats = {
+		list: [
+			{ label: 'Active Patients', value: '6' },
+			{ label: 'Discharges Expected Today', value: '2' },
+			{ label: 'Flagged Bottlenecks', value: '8' }
+		]
+	} as const;
+
+	const patients = [
 		{
 			name: 'Sarah Martinez',
 			room: '302A',
-			admission: '04/15/2026',
-			edd: '04/22/2026',
+			admit: '04/15/2026',
+			edd: '04/27/2026',
 			bottleneck: 'Cardiology consult pending',
 			progress: 65,
-			status: 'on-track'
+			status: 'on-track' as const
 		},
 		{
 			name: 'James Kim',
 			room: '215B',
-			admission: '04/17/2026',
-			edd: '04/21/2026',
+			admit: '04/17/2026',
+			edd: '04/28/2026',
 			bottleneck: 'Home care setup',
 			progress: 45,
-			status: 'at-risk'
+			status: 'at-risk' as const
 		},
 		{
 			name: 'Maria Rodriguez',
 			room: '418C',
-			admission: '04/14/2026',
-			edd: '04/20/2026',
+			admit: '04/14/2026',
+			edd: '04/24/2026',
 			bottleneck: 'Insurance authorization',
 			progress: 85,
-			status: 'delayed'
+			status: 'delayed' as const
 		},
 		{
 			name: 'Robert Chen',
 			room: '109A',
-			admission: '04/18/2026',
-			edd: '04/23/2026',
+			admit: '04/18/2026',
+			edd: '04/27/2026',
 			bottleneck: 'PT evaluation',
 			progress: 72,
-			status: 'on-track'
+			status: 'on-track' as const
 		},
 		{
 			name: 'Linda Thompson',
 			room: '304B',
-			admission: '04/16/2026',
-			edd: '04/24/2026',
+			admit: '04/16/2026',
+			edd: '04/30/2026',
 			bottleneck: 'DME delivery scheduled',
 			progress: 58,
-			status: 'on-track'
+			status: 'on-track' as const
 		},
 		{
 			name: 'David Park',
 			room: '201C',
-			admission: '04/19/2026',
-			edd: '04/25/2026',
+			admit: '04/19/2026',
+			edd: '04/29/2026',
 			bottleneck: 'Wound care training',
 			progress: 40,
-			status: 'at-risk'
+			status: 'at-risk' as const
+		}
+	] as const;
+
+	const staffTaskSections: {
+		title: string;
+		rows: {
+			role: string;
+			task: string;
+			pri: string;
+			status: string;
+			eta: string;
+			notes?: string;
+		}[];
+	}[] = [
+		{
+			title: 'Current bottleneck',
+			rows: [
+				{
+					role: 'Logistics / Admin',
+					task: 'Insurance prior-authorization',
+					pri: 'STAT',
+					status: 'Delayed',
+					eta: '2 days',
+					notes: 'Payer response pending'
+				}
+			]
+		},
+		{
+			title: 'Critical tasks',
+			rows: [
+				{
+					role: 'Pharmacy',
+					task: 'Medicine reconciliation',
+					pri: 'Routine',
+					status: 'Not started',
+					eta: '2 days',
+					notes: '-'
+				},
+				{
+					role: 'Case management',
+					task: 'Secure SNF bed (rehab)',
+					pri: 'Routine',
+					status: 'In progress',
+					eta: '1 day',
+					notes: '—'
+				},
+				{
+					role: 'Nursing',
+					task: 'Discharge education',
+					pri: 'Routine',
+					status: 'At risk',
+					eta: '1 day',
+					notes: '—'
+				}
+			]
 		}
 	];
 
-	const tabs = ['Dashboard', 'Patients', 'Reports', 'Settings'] as const;
-	type Tab = (typeof tabs)[number];
+	const portalTasks: {
+		dept: string;
+		task: string;
+		pri: string;
+		status: string;
+		est: string;
+		created: string;
+		notes: string;
+		highlight?: 'blocked' | 'done';
+	}[] = [
+		{
+			dept: 'Logistics / Admin',
+			task: 'Insurance prior-authorization',
+			pri: 'STAT',
+			status: 'Blocked',
+			est: '4 hrs',
+			created: 'Apr 27, 9:10 AM',
+			notes: 'Waiting on payer response',
+			highlight: 'blocked'
+		},
+		{
+			dept: 'Pharmacy',
+			task: 'Medicine reconciliation',
+			pri: 'STAT',
+			status: 'Not started',
+			est: '1 hr',
+			created: 'Apr 27, 10:00 AM',
+			notes: 'Requires finalized discharge meds'
+		},
+		{
+			dept: 'Nursing',
+			task: 'Discharge education',
+			pri: 'Routine',
+			status: 'In progress',
+			est: '45m',
+			created: 'Apr 27, 11:30 AM',
+			notes: 'Reviewing wound care instructions'
+		},
+		{
+			dept: 'Transport',
+			task: 'Schedule ride',
+			pri: 'Routine',
+			status: 'Blocked',
+			est: '20m',
+			created: 'Apr 27, 12:00 PM',
+			notes: 'Blocked by insurance authorization'
+		},
+		{
+			dept: 'Housekeeping',
+			task: 'Room turnover prep',
+			pri: 'Routine',
+			status: 'Not started',
+			est: '30m',
+			created: 'Apr 27, 1:15 PM',
+			notes: 'Can begin once discharge confirmed'
+		},
+		{
+			dept: 'Physician',
+			task: 'Final discharge order',
+			pri: 'STAT',
+			status: 'Completed',
+			est: '—',
+			created: 'Apr 27, 8:45 AM',
+			notes: 'Signed and submitted',
+			highlight: 'done'
+		},
+		{
+			dept: 'Lab',
+			task: 'Final lab clearance',
+			pri: 'Routine',
+			status: 'Completed',
+			est: '—',
+			created: 'Apr 27, 7:50 AM',
+			notes: 'All labs in range',
+			highlight: 'done'
+		}
+	];
 
-	let activeTab = $state<Tab>('Dashboard');
-	let viewMode = $state<'staff' | 'patient'>('staff');
-	let selectedIndex = $state<number | null>(0);
+	let viewMode = $state<ViewMode>('staff');
+	let staffScreen = $state<StaffScreen>('list');
+	let selectedPatient = $state<(typeof patients)[number]>(patients[0]);
 
-	/** settings demo toggles */
-	let notifEmail = $state(true);
-	let compactTable = $state(false);
+	const detailStats = $derived([
+		{ label: 'Patient' as const, value: selectedPatient.name, sub: selectedPatient.room },
+		{ label: 'Est. Discharge (from now)' as const, value: '3.2 days' as const },
+		{ label: 'Current bottleneck' as const, value: selectedPatient.bottleneck }
+	]);
 
-	/** report panel “opened” (demo) */
-	let reportOpen = $state<string | null>(null);
-
-	const tabPanelId = 'wireframe-app-panel';
-
-	function statusLabel(s: Status): string {
-		if (s === 'on-track') return 'On Track';
-		if (s === 'at-risk') return 'At Risk';
-		return 'Delayed';
+	function openDetailFor(p: (typeof patients)[number]) {
+		selectedPatient = p;
+		staffScreen = 'detail';
 	}
 
-	function statusClass(s: Status): string {
-		if (s === 'on-track') return 'bg-blue text-white';
-		if (s === 'at-risk') return 'bg-yellow text-white';
-		return 'bg-red text-white';
+	function backToList() {
+		staffScreen = 'list';
 	}
 
-	function selectRow(i: number) {
-		selectedIndex = selectedIndex === i ? null : i;
+	function setViewMode(mode: ViewMode) {
+		viewMode = mode;
+		if (mode === 'patient') {
+			staffScreen = 'list';
+		}
 	}
+
+	const statusPill = {
+		'on-track': 'bg-blue text-white',
+		'at-risk': 'bg-amber-500 text-white',
+		delayed: 'bg-red-600 text-white'
+	} as const;
+
+	const statusLabel: Record<keyof typeof statusPill, string> = {
+		'on-track': 'On track',
+		'at-risk': 'At risk',
+		delayed: 'Delayed'
+	};
+
+	const taskPill = (s: string) => {
+		const t = s.toLowerCase();
+		if (t.includes('delay') || t.includes('blocked')) return 'bg-red-600 text-white';
+		if (t.includes('not started') || t.includes('at risk')) return 'bg-amber-500 text-white';
+		if (t.includes('complete')) return 'bg-lime-700 text-white';
+		return 'bg-blue text-white';
+	};
+
+	const priPill = (p: string) => {
+		const t = p.toLowerCase();
+		if (t === 'stat') return 'bg-red-600 text-white';
+		return 'bg-blue/90 text-white';
+	};
 </script>
 
 <div
-	class="w-full"
+	class="relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg text-slate-900"
 	role="region"
-	aria-label="Interactive discharge dashboard wireframe (demo, not a live system)"
+	aria-label="FlowState product wireframe demo"
 >
-	<div
-		class="relative z-10 touch-manipulation isolate overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-md"
+	<header
+		class="flex h-16 shrink-0 items-center justify-between gap-3 bg-cyan-900 px-4 sm:px-8 text-white"
 	>
-		<header
-			class="flex min-h-16 flex-wrap items-center justify-between gap-4 bg-navy px-4 py-3 text-white sm:px-6"
-		>
-			<div class="flex min-w-0 items-center gap-3">
-				<div class="h-8 w-8 shrink-0 rounded-lg bg-white/15" aria-hidden="true"></div>
-				<span class="truncate text-base font-medium">Placeholder Hospital</span>
+		<div class="flex min-w-0 flex-1 items-center gap-3">
+			<div class="h-8 w-8 shrink-0 rounded bg-white/10" aria-hidden="true"></div>
+			<span class="min-w-0 shrink truncate text-sm font-medium sm:text-base">{hospitalName}</span>
+			<div class="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs whitespace-nowrap sm:text-sm">
+				{viewMode === 'staff' ? 'Discharge coordinator' : 'Patient view'}
 			</div>
-			<div class="flex items-center gap-2 sm:gap-3">
-				<span
-					class="hidden max-w-[14rem] truncate rounded-full bg-white/15 px-3 py-1.5 text-sm sm:inline"
-				>
-					{viewMode === 'staff' ? 'Discharge Coordinator' : 'Patient (preview)'}
-				</span>
-				<button
-					type="button"
-					class="grid h-9 w-9 shrink-0 place-content-center rounded-lg bg-white/10 text-white/90 transition hover:bg-white/20"
-					aria-label="Notifications (wireframe, no action)"
-				>
-					<Icon src={Bell} class="h-6 w-6" />
-				</button>
-			</div>
-		</header>
-
-		<div
-			class="flex h-12 items-stretch gap-1 overflow-x-auto border-b border-slate-200 px-2 sm:gap-2 sm:px-4"
-			role="tablist"
-			aria-label="App sections (wireframe)"
-		>
-			{#each tabs as tab (tab)}
-				<button
-					type="button"
-					role="tab"
-					class="shrink-0 border-b-2 px-3 py-2 text-left text-sm font-medium transition sm:px-4 sm:text-base {activeTab ===
-					tab
-						? 'border-navy text-navy'
-						: 'border-transparent text-gray hover:text-navy'}"
-					aria-selected={activeTab === tab}
-					aria-controls={tabPanelId}
-					id="wireframe-tab-{tab.toLowerCase()}"
-					onclick={() => (activeTab = tab)}
-				>
-					{tab}
-				</button>
-			{/each}
 		</div>
+		<button
+			type="button"
+			class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg p-1.5 text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+			aria-label="Notifications"
+		>
+			<Icon src={Bell} class="h-5 w-5 [stroke-width:2]" />
+		</button>
+	</header>
 
-		<div id={tabPanelId} role="tabpanel" class="flex flex-col gap-6 p-4 sm:p-6" tabindex="-1">
-			<!-- Dashboard: KPIs (staff) or intro (patient) -->
-			{#if activeTab === 'Dashboard' && viewMode === 'staff'}
-				<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-					<button
-						type="button"
-						class="rounded-2xl bg-sky p-4 text-left shadow-sm ring-1 ring-inset ring-blue/20 transition hover:bg-sky/90"
-					>
-						<div class="text-sm text-blue">Active Patients</div>
-						<div class="mt-1 text-xl font-medium text-navy">24</div>
-					</button>
-					<button
-						type="button"
-						class="rounded-2xl bg-sky p-4 text-left shadow-sm ring-1 ring-inset ring-blue/20 transition hover:bg-sky/90"
-					>
-						<div class="text-sm text-blue">Average EDD</div>
-						<div class="mt-1 text-xl font-medium text-navy">3.2 days</div>
-					</button>
-					<button
-						type="button"
-						class="rounded-2xl bg-sky p-4 text-left shadow-sm ring-1 ring-inset ring-blue/20 transition hover:bg-sky/90"
-					>
-						<div class="text-sm text-blue">Flagged Bottlenecks</div>
-						<div class="mt-1 text-xl font-medium text-navy">8</div>
-					</button>
+	<nav
+		class="flex h-12 items-end gap-6 border-b border-slate-300 px-4 sm:px-8"
+		aria-label="Wireframe sections"
+	>
+		<span
+			class="border-b-2 border-cyan-900 px-0.5 pb-3 text-sm font-medium text-cyan-900 sm:text-base"
+		>
+			{viewMode === 'patient' ? 'My care' : 'Dashboard'}
+		</span>
+		{#if viewMode === 'staff'}
+			<span class="pb-3 text-sm text-slate-500 sm:text-base">Reports</span>
+			<span class="pb-3 text-sm text-slate-500 sm:text-base">Settings</span>
+		{/if}
+	</nav>
+
+	<main class="min-h-[420px] px-4 py-6 sm:px-8 sm:py-8">
+		{#if viewMode === 'staff' && staffScreen === 'list'}
+			<div class="flex flex-col gap-6">
+				<div class="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+					{#each stats.list as s}
+						<div class="rounded-[10px] bg-indigo-50 px-5 py-4">
+							<p class="text-sm text-blue-800">{s.label}</p>
+							<p class="mt-1 text-lg font-medium text-cyan-900">{s.value}</p>
+						</div>
+					{/each}
 				</div>
-			{:else if activeTab === 'Dashboard' && viewMode === 'patient'}
+
 				<div
-					class="flex flex-col gap-2 rounded-2xl border border-blue/30 bg-sky p-4 text-navy sm:flex-row sm:items-center sm:justify-between"
+					class="overflow-hidden rounded-[10px] border border-slate-300 bg-white"
+					role="table"
+					aria-label="Active patients"
 				>
-					<div>
-						<p class="text-sm text-blue">Your stay</p>
-						<p class="text-lg font-medium">Estimated discharge: April 22, 2026</p>
+					<div
+						class="grid grid-cols-[minmax(0,1.4fr)_0.5fr_0.75fr_0.75fr_minmax(0,1.2fr)_0.5fr_0.7fr] gap-2 border-b border-slate-300 bg-indigo-50 px-3 py-3 text-xs font-bold text-cyan-900 sm:gap-3 sm:px-4 sm:text-sm"
+					>
+						<div>Name</div>
+						<div>Room</div>
+						<div class="hidden sm:block">Admitted</div>
+						<div>EDD</div>
+						<div class="hidden md:block">Bottleneck</div>
+						<div>Progress</div>
+						<div>Status</div>
 					</div>
-					<p class="text-sm text-gray">Simplified information only — for demo wireframe</p>
-				</div>
-			{/if}
-
-			{#if activeTab === 'Dashboard' || activeTab === 'Patients'}
-				<div class="overflow-x-auto rounded-2xl border border-slate-200">
-					{#if viewMode === 'staff'}
-						<table
-							class="w-full min-w-[52rem] border-collapse text-left text-sm {compactTable
-								? 'text-xs'
-								: ''}"
+					{#each patients as p}
+						<button
+							type="button"
+							class="grid w-full grid-cols-[minmax(0,1.4fr)_0.5fr_0.75fr_0.75fr_minmax(0,1.2fr)_0.5fr_0.7fr] gap-2 border-b border-slate-200 px-3 py-3 text-left text-xs sm:gap-3 sm:px-4 sm:text-sm last:border-0 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-800 focus-visible:outline-offset-2"
+							onclick={() => openDetailFor(p)}
 						>
-							<thead>
-								<tr class="border-b border-slate-200 bg-sky text-navy">
-									<th class="whitespace-nowrap px-3 py-3 font-semibold sm:px-4">Name</th>
-									<th class="whitespace-nowrap px-3 py-3 font-semibold sm:px-4">Room</th>
-									<th class="whitespace-nowrap px-3 py-3 font-semibold sm:px-4">Admission</th>
-									<th class="whitespace-nowrap px-3 py-3 font-semibold sm:px-4">EDD</th>
-									<th class="min-w-[10rem] px-3 py-3 font-semibold sm:px-4">Current bottleneck</th>
-									<th class="whitespace-nowrap px-3 py-3 font-semibold sm:px-4">Progress</th>
-									<th class="whitespace-nowrap px-3 py-3 font-semibold sm:px-4">Status</th>
+							<span class="font-medium text-slate-900">{p.name}</span>
+							<span>{p.room}</span>
+							<span class="hidden sm:block text-slate-600">{p.admit}</span>
+							<span class="text-slate-800">{p.edd}</span>
+							<span class="hidden md:block truncate text-slate-600" title={p.bottleneck}
+								>{p.bottleneck}</span
+							>
+							<span class="flex items-center gap-2 min-w-0">
+								<span class="h-1.5 min-w-0 flex-1 overflow-hidden rounded-full bg-slate-300">
+									<span class="block h-full bg-blue-700" style={`width: ${p.progress}%`}></span>
+								</span>
+								<span class="shrink-0 tabular-nums text-slate-800">{p.progress}%</span>
+							</span>
+							<span>
+								<span
+									class="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium whitespace-nowrap {statusPill[
+										p.status
+									]}"
+								>
+									{statusLabel[p.status]}
+								</span>
+							</span>
+						</button>
+					{/each}
+				</div>
+				<p class="text-center text-sm text-slate-500">
+					Click a row to open the coordinator task board for that patient.
+				</p>
+			</div>
+		{:else if viewMode === 'staff' && staffScreen === 'detail'}
+			<div class="flex flex-col gap-5">
+				<div class="flex flex-wrap items-center gap-2">
+					<button
+						type="button"
+						class="text-sm font-medium text-cyan-800 underline decoration-cyan-600/50 underline-offset-2 hover:text-cyan-900"
+						onclick={backToList}
+					>
+						← Back to dashboard
+					</button>
+					<span class="text-slate-400">|</span>
+					<span class="text-sm text-slate-600">Patient workspace</span>
+				</div>
+
+				<div class="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+					<div class="rounded-[10px] bg-indigo-50 px-5 py-4">
+						<p class="text-sm text-blue-800">{detailStats[0].label}</p>
+						<p class="mt-0.5 font-medium text-cyan-900">{detailStats[0].value}</p>
+						<p class="text-sm text-cyan-800/80">Room {detailStats[0].sub}</p>
+					</div>
+					<div class="rounded-[10px] bg-indigo-50 px-5 py-4">
+						<p class="text-sm text-blue-800">{detailStats[1].label}</p>
+						<p class="mt-0.5 text-lg text-cyan-900">{detailStats[1].value}</p>
+					</div>
+					<div class="rounded-[10px] bg-indigo-50 px-5 py-4">
+						<p class="text-sm text-blue-800">{detailStats[2].label}</p>
+						<p class="mt-0.5 font-medium text-cyan-900">{detailStats[2].value}</p>
+					</div>
+				</div>
+
+				<div class="overflow-x-auto rounded-[10px] border border-slate-300">
+					<table class="w-full min-w-[640px] text-left text-sm">
+						<thead>
+							<tr class="border-b border-slate-300 bg-indigo-50 text-cyan-900">
+								<th class="px-3 py-3 font-bold sm:px-4">Role</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Task</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Priority</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Status</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Est. time</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each staffTaskSections as section}
+								<tr class="bg-indigo-200/80">
+									<td colspan="6" class="px-4 py-2.5 text-sm font-bold text-slate-900">
+										{section.title}
+									</td>
 								</tr>
-							</thead>
-							<tbody class="text-gray">
-								{#each rows as row, i (row.name)}
-									<tr
-										class="cursor-pointer border-b border-slate-200 last:border-b-0 transition {selectedIndex ===
-										i
-											? 'bg-sky'
-											: 'hover:bg-slate-50'}"
-										onclick={() => selectRow(i)}
-									>
-										<td class="whitespace-nowrap px-3 py-3 font-medium text-navy sm:px-4">
-											{row.name}
-										</td>
-										<td class="whitespace-nowrap px-3 py-3 sm:px-4">{row.room}</td>
-										<td class="whitespace-nowrap px-3 py-3 sm:px-4">{row.admission}</td>
-										<td class="whitespace-nowrap px-3 py-3 sm:px-4">{row.edd}</td>
-										<td class="px-3 py-3 sm:px-4">{row.bottleneck}</td>
-										<td class="px-3 py-3 sm:px-4">
-											<div class="flex min-w-[6rem] items-center gap-2">
-												<div
-													class="h-2 min-w-[3rem] flex-1 overflow-hidden rounded-full bg-slate-200"
-												>
-													<div
-														class="h-full rounded-full bg-blue"
-														style:width="{row.progress}%"
-													></div>
-												</div>
-												<span class="w-9 shrink-0 tabular-nums text-navy">{row.progress}%</span>
-											</div>
-										</td>
-										<td class="px-3 py-3 sm:px-4">
+								{#each section.rows as row}
+									<tr class="border-b border-slate-200 bg-white">
+										<td class="px-3 py-3 align-top sm:px-4">{row.role}</td>
+										<td class="px-3 py-3 align-top sm:px-4">{row.task}</td>
+										<td class="px-3 py-3 align-top sm:px-4">
 											<span
-												class="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium whitespace-nowrap sm:text-sm {statusClass(
+												class="inline-block whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium {priPill(
+													row.pri
+												)}"
+											>
+												{row.pri}
+											</span>
+										</td>
+										<td class="px-3 py-3 align-top sm:px-4">
+											<span
+												class="inline-block whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium {taskPill(
 													row.status
 												)}"
 											>
-												{statusLabel(row.status)}
+												{row.status}
 											</span>
 										</td>
+										<td class="px-3 py-3 text-slate-700 sm:px-4">{row.eta}</td>
+										<td class="px-3 py-3 text-slate-600 sm:px-4">{row.notes}</td>
 									</tr>
 								{/each}
-							</tbody>
-						</table>
-					{:else}
-						<!-- Patient view: friendlier table -->
-						<table class="w-full min-w-[32rem] border-collapse text-left text-sm">
-							<thead>
-								<tr class="border-b border-slate-200 bg-sky text-navy">
-									<th class="px-3 py-3 font-semibold sm:px-4">Patient</th>
-									<th class="px-3 py-3 font-semibold sm:px-4">Target discharge</th>
-									<th class="min-w-[8rem] px-3 py-3 font-semibold sm:px-4">Next step</th>
-									<th class="px-3 py-3 font-semibold sm:px-4">Status</th>
-								</tr>
-							</thead>
-							<tbody class="text-gray">
-								{#each rows as row, i (row.name + '-p')}
-									<tr
-										class="cursor-pointer border-b border-slate-200 last:border-b-0 transition {selectedIndex ===
-										i
-											? 'bg-sky'
-											: 'hover:bg-slate-50'}"
-										onclick={() => selectRow(i)}
-									>
-										<td class="px-3 py-3 font-medium text-navy sm:px-4">{row.name.split(' ')[0]}</td
+							{/each}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		{:else}
+			<div class="flex flex-col gap-4">
+				<div class="rounded-[10px] border border-slate-200 bg-indigo-50 px-5 py-4">
+					<p class="text-base font-bold text-blue-800">
+						Patient: {selectedPatient.name} — Room {selectedPatient.room}
+					</p>
+					<p class="mt-1 text-sm leading-relaxed text-cyan-900">
+						Estimated discharge: April 29
+						<br />
+						Current focus: insurance authorization
+					</p>
+				</div>
+
+				<div class="overflow-x-auto rounded-[10px] border border-slate-300">
+					<table class="w-full min-w-[720px] text-left text-sm">
+						<thead>
+							<tr class="border-b border-slate-300 bg-indigo-50 text-cyan-900">
+								<th class="px-3 py-3 font-bold sm:px-4">Department</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Task</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Priority</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Status</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Est.</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Created</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each portalTasks as t}
+								<tr
+									class="border-b border-slate-200 {t.highlight === 'blocked'
+										? 'bg-rose-100'
+										: t.highlight === 'done'
+											? 'bg-green-100'
+											: 'bg-white'}"
+								>
+									<td class="px-3 py-3 align-top sm:px-4">{t.dept}</td>
+									<td class="px-3 py-3 align-top sm:px-4">{t.task}</td>
+									<td class="px-3 py-3 align-top sm:px-4">
+										<span
+											class="inline-block whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium {priPill(
+												t.pri
+											)}"
 										>
-										<td class="px-3 py-3 sm:px-4">{row.edd}</td>
-										<td class="px-3 py-3 sm:px-4">{row.bottleneck}</td>
-										<td class="px-3 py-3 sm:px-4">
-											<span
-												class="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium whitespace-nowrap sm:text-sm {statusClass(
-													row.status
-												)}"
-											>
-												{statusLabel(row.status)}
-											</span>
-										</td>
-									</tr>
-								{/each}
-							</tbody>
-						</table>
-					{/if}
+											{t.pri}
+										</span>
+									</td>
+									<td class="px-3 py-3 align-top sm:px-4">
+										<span
+											class="inline-block whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium {taskPill(
+												t.status
+											)}"
+										>
+											{t.status}
+										</span>
+									</td>
+									<td class="px-3 py-3 text-slate-700 sm:px-4">{t.est}</td>
+									<td class="px-3 py-3 text-slate-600 sm:px-4 whitespace-nowrap">{t.created}</td>
+									<td class="px-3 py-3 text-slate-600 sm:px-4 max-w-xs">{t.notes}</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
 				</div>
-			{/if}
+				<p class="text-sm text-slate-500">
+					Patient view mirrors the same plan with clearer language and without internal-only fields.
+				</p>
+			</div>
+		{/if}
+	</main>
 
-			{#if selectedIndex !== null && (activeTab === 'Dashboard' || activeTab === 'Patients')}
-				<div
-					class="rounded-2xl border border-slate-200 bg-slate-50/80 p-3 text-sm text-navy"
-					aria-live="polite"
-				>
-					<span class="font-medium">Selected (demo):</span>
-					{rows[selectedIndex]?.name} — {rows[selectedIndex]?.bottleneck}
-				</div>
-			{/if}
-
-			{#if activeTab === 'Reports'}
-				<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-					<div class="flex flex-col rounded-2xl border border-slate-200 p-4">
-						<p class="font-medium text-navy">Length of stay</p>
-						<p class="mt-1 text-2xl text-blue">4.1 days</p>
-						<p class="mt-2 text-xs text-gray">Last 30 days, all units (wireframe data)</p>
-						<button
-							type="button"
-							class="mt-3 w-fit rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-navy transition hover:bg-slate-100"
-							onclick={() => (reportOpen = reportOpen === 'los' ? null : 'los')}
-							>View details</button
-						>
-						{#if reportOpen === 'los'}
-							<p class="mt-2 text-xs text-gray">Demo: export would go here.</p>
-						{/if}
-					</div>
-					<div class="flex flex-col rounded-2xl border border-slate-200 p-4">
-						<p class="font-medium text-navy">Bottleneck mix</p>
-						<p class="mt-1 text-2xl text-blue">12 open</p>
-						<p class="mt-2 text-xs text-gray">Grouped by type (wireframe data)</p>
-						<button
-							type="button"
-							class="mt-3 w-fit rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-navy transition hover:bg-slate-100"
-							onclick={() => (reportOpen = reportOpen === 'bot' ? null : 'bot')}
-							>View details</button
-						>
-						{#if reportOpen === 'bot'}
-							<p class="mt-2 text-xs text-gray">Demo: report preview would go here.</p>
-						{/if}
-					</div>
-					<div class="flex flex-col rounded-2xl border border-slate-200 p-4">
-						<p class="font-medium text-navy">Readmission watch</p>
-						<p class="mt-1 text-2xl text-navy">0</p>
-						<p class="mt-2 text-xs text-gray">Flagged in window (wireframe data)</p>
-						<button
-							type="button"
-							class="mt-3 w-fit rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-navy transition hover:bg-slate-100"
-							onclick={() => (reportOpen = reportOpen === 'read' ? null : 'read')}
-							>View details</button
-						>
-						{#if reportOpen === 'read'}
-							<p class="mt-2 text-xs text-gray">Demo: no alerts in this sample.</p>
-						{/if}
-					</div>
-				</div>
-			{/if}
-
-			{#if activeTab === 'Settings'}
-				<div class="flex max-w-md flex-col gap-4 text-navy">
-					<div
-						class="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 p-4"
-					>
-						<div>
-							<p class="font-medium">Email digests</p>
-							<p class="text-sm text-gray">Wireframe only — not saved</p>
-						</div>
-						<button
-							type="button"
-							role="switch"
-							aria-label="Email digests"
-							aria-checked={notifEmail}
-							class="relative h-8 w-14 rounded-full transition {notifEmail
-								? 'bg-blue'
-								: 'bg-slate-300'}"
-							onclick={() => (notifEmail = !notifEmail)}
-						>
-							<span
-								class="absolute top-1 h-6 w-6 rounded-full bg-white shadow transition {notifEmail
-									? 'left-7'
-									: 'left-1'}"
-								aria-hidden="true"
-							></span>
-						</button>
-					</div>
-					<div
-						class="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 p-4"
-					>
-						<div>
-							<p class="font-medium">Compact table</p>
-							<p class="text-sm text-gray">Tighter rows for dense screens (demo only)</p>
-						</div>
-						<button
-							type="button"
-							role="switch"
-							aria-label="Compact table"
-							aria-checked={compactTable}
-							class="relative h-8 w-14 rounded-full transition {compactTable
-								? 'bg-blue'
-								: 'bg-slate-300'}"
-							onclick={() => (compactTable = !compactTable)}
-						>
-							<span
-								class="absolute top-1 h-6 w-6 rounded-full bg-white shadow transition {compactTable
-									? 'left-7'
-									: 'left-1'}"
-								aria-hidden="true"
-							></span>
-						</button>
-					</div>
-				</div>
-			{/if}
-		</div>
-
+	<div
+		class="flex flex-wrap items-center justify-end gap-2 border-t border-slate-200 bg-slate-50/90 px-4 py-3 sm:px-8"
+	>
 		<div
-			class="flex flex-wrap justify-end gap-2 border-t border-slate-200 bg-sky/50 px-4 py-4 sm:px-6"
+			class="inline-flex overflow-hidden rounded-[10px] border border-slate-200 bg-white p-0.5 shadow-sm"
 			role="group"
-			aria-label="Preview mode"
+			aria-label="Choose staff or patient wireframe"
 		>
 			<button
 				type="button"
-				class="rounded-lg px-4 py-2 text-sm font-medium text-white transition shadow-md {viewMode ===
+				class="rounded-lg px-4 py-2 text-sm font-medium transition-colors sm:px-5 {viewMode ===
 				'staff'
-					? 'bg-navy ring-2 ring-navy ring-offset-2'
-					: 'bg-navy/60 hover:bg-navy'}"
-				aria-pressed={viewMode === 'staff'}
-				onclick={() => (viewMode = 'staff')}
+					? 'bg-cyan-900 text-white shadow'
+					: 'text-cyan-900 hover:bg-slate-100'}"
+				onclick={() => setViewMode('staff')}
 			>
-				Staff View
+				Staff view
 			</button>
 			<button
 				type="button"
-				class="rounded-lg px-4 py-2 text-sm font-medium text-white transition shadow-md {viewMode ===
+				class="rounded-lg px-4 py-2 text-sm font-medium transition-colors sm:px-5 {viewMode ===
 				'patient'
-					? 'bg-blue ring-2 ring-blue ring-offset-2'
-					: 'bg-blue/70 hover:bg-blue'}"
-				aria-pressed={viewMode === 'patient'}
-				onclick={() => (viewMode = 'patient')}
+					? 'bg-blue text-white shadow'
+					: 'text-cyan-900 hover:bg-slate-100'}"
+				onclick={() => setViewMode('patient')}
 			>
-				Patient Portal
+				Patient portal
 			</button>
 		</div>
 	</div>
