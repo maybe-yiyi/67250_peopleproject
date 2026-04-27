@@ -596,23 +596,19 @@
 					<Icon src={TrendingUp} class="h-8 w-8 text-white" />
 					<span class="text-white text-2xl font-medium">Competitive Positioning</span>
 				</div>
-				<div class="grid grid-cols-2 mt-6">
+				<div class="grid grid-cols-1 mt-6">
 					<div class="flex flex-col">
 						<span class="mb-4 text-white text-xl font-medium">Our Solution</span>
 						<ul class="list-disc list-inside marker:text-green text-white space-y-2">
-							<li>Affordable for smaller hospitals</li>
-							<li>Easy to implement and use</li>
-							<li>Modular and adaptable</li>
-							<li>Focused on discharge planning</li>
-						</ul>
-					</div>
-					<div class="flex flex-col">
-						<span class="mb-4 text-white text-xl font-medium">Existing Systems</span>
-						<ul class="list-disc list-inside marker:text-red text-white space-y-2">
-							<li>Expensive enterprise solutions</li>
-							<li>Complex implementation</li>
-							<li>One-size-fits-all approach</li>
-							<li>Broad patient flow, not discharge-focused</li>
+							<li>
+								Specificity of scope (discharge) reduces costs, addresses costs and time constraints
+							</li>
+							<li>Embedded in workflows --> high switching costs and retention once adopted</li>
+							<li>
+								Smaller, specialized solution is more realistic and economical compared to the
+								larger, and costly, software bundle larger systems offer like Epic Systems or Cerner
+							</li>
+							<li>Reducing coordination costs (“transaction cost theory”)</li>
 						</ul>
 					</div>
 				</div>
