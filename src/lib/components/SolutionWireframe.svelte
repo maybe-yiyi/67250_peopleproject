@@ -1,6 +1,9 @@
 <script lang="ts">
 	type Status = 'on-track' | 'at-risk' | 'delayed';
 
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { Bell } from '@steeze-ui/lucide-icons';
+
 	const rows: {
 		name: string;
 		room: string;
@@ -125,7 +128,7 @@
 					class="grid h-9 w-9 shrink-0 place-content-center rounded-lg bg-white/10 text-white/90 transition hover:bg-white/20"
 					aria-label="Notifications (wireframe, no action)"
 				>
-					<span class="h-1.5 w-4 border border-white/80" aria-hidden="true"></span>
+					<Icon src={Bell} class="h-6 w-6" />
 				</button>
 			</div>
 		</header>
