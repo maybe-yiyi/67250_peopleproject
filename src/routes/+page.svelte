@@ -31,6 +31,37 @@
 	import SunnyImage from '$lib/assets/sunny.jpg';
 	import IsabellaImage from '$lib/assets/isabella.jpg';
 	import YiyoungImage from '$lib/assets/yiyoung.jpg';
+
+	type ReferenceItem =
+		| { kind: 'text'; text: string }
+		| { kind: 'titleAndSource'; title: string; beforeUrl: string; url: string; afterUrl: string };
+
+	const references: ReferenceItem[] = [
+		{
+			kind: 'text',
+			text: 'Coleman, E. A., et al. (2023). "Discharge Planning and Transitions of Care in Community Hospitals." Journal of Hospital Medicine, 18(4), 234-245.'
+		},
+		{
+			kind: 'text',
+			text: 'Ajami, Sima, and Razieh Arab-Chadegani. "Barriers to implement Electronic Health Records (EHRs)." Materia socio-medica vol. 25,3 (2013): 213-5. doi:10.5455/msm.2013.25.213-215.'
+		},
+		{
+			kind: 'text',
+			text: 'Hunter, Mehreen et al. "Analysis of patient flow and barriers to timely discharge from general medical wards at a tertiary academic hospital in Cape Town, South Africa." BMC health services research vol. 24,1 287. 6 Mar. 2024, doi:10.1186/s12913-024-10806-6.'
+		},
+		{
+			kind: 'text',
+			text: 'Wiens, Matthew & Racheal, Abodunrin & Grande, David & Cooper, Hannah & Iseal, Sheed. (2025). Barriers to Effective Post-discharge Care in Resource-limited Settings.'
+		},
+		{
+			kind: 'titleAndSource',
+			title:
+				'Sadel J, et al. Optimizing Hospital Discharge Planning: Empirical Insights and Requirements of AI-Based Technologies From an Explorative Mixed Methods Field Study.',
+			beforeUrl: 'JMIR Form Res 2026;10:e81824. ',
+			url: 'https://formative.jmir.org/2026/1/e81824',
+			afterUrl: ' DOI: 10.2196/81824.'
+		}
+	];
 </script>
 
 <SectionScrollSpy />
@@ -995,6 +1026,53 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
+
+	<section
+		id="references"
+		use:revealView
+		class="scroll-my-28 bg-sky py-16"
+		aria-labelledby="references-heading"
+	>
+		<div class="mx-auto flex w-full max-w-[70vw] flex-col items-center">
+			<h1 id="references-heading" class="text-4xl font-medium text-navy">References</h1>
+			<ol
+				class="mt-10 w-full max-w-4xl list-none space-y-4 p-0"
+				aria-label="Academic and industry references"
+			>
+				{#each references as ref, i (i)}
+					<li
+						class="flex gap-4 rounded-2xl border-2 border-blue bg-white p-4 shadow-sm sm:gap-5 sm:p-5"
+					>
+						<span
+							class="shrink-0 text-base font-medium leading-relaxed text-blue tabular-nums"
+							aria-hidden="true"
+						>
+							[{i + 1}]
+						</span>
+						<div class="min-w-0 text-base leading-relaxed text-gray">
+							{#if ref.kind === 'text'}
+								{ref.text}
+							{:else}
+								<p class="m-0">{ref.title}</p>
+								<p class="m-0 mt-2 break-words">
+									{ref.beforeUrl}
+									<a
+										href={ref.url}
+										class="text-blue underline decoration-blue/30 underline-offset-2 hover:decoration-blue"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{ref.url}
+									</a>
+									{ref.afterUrl}
+								</p>
+							{/if}
+						</div>
+					</li>
+				{/each}
+			</ol>
 		</div>
 	</section>
 </main>
