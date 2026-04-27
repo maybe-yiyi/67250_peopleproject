@@ -20,8 +20,8 @@
 			name: 'Sarah Martinez',
 			room: '302A',
 			admit: '04/15/2026',
-			edd: '04/27/2026',
-			bottleneck: 'Cardiology consult pending',
+			edd: '04/29/2026',
+			bottleneck: 'Insurance authorization',
 			progress: 65,
 			status: 'on-track' as const
 		},
@@ -38,8 +38,8 @@
 			name: 'Maria Rodriguez',
 			room: '418C',
 			admit: '04/14/2026',
-			edd: '04/24/2026',
-			bottleneck: 'Insurance authorization',
+			edd: '04/27/2026',
+			bottleneck: 'Cardiology consult pending',
 			progress: 85,
 			status: 'delayed' as const
 		},
@@ -72,60 +72,60 @@
 		}
 	] as const;
 
-	const staffTaskSections: {
-		title: string;
-		rows: {
-			role: string;
-			task: string;
-			pri: string;
-			status: string;
-			eta: string;
-			notes?: string;
-		}[];
-	}[] = [
-		{
-			title: 'Current bottleneck',
-			rows: [
-				{
-					role: 'Logistics / Admin',
-					task: 'Insurance prior-authorization',
-					pri: 'STAT',
-					status: 'Delayed',
-					eta: '2 days',
-					notes: 'Payer response pending'
-				}
-			]
-		},
-		{
-			title: 'Critical tasks',
-			rows: [
-				{
-					role: 'Pharmacy',
-					task: 'Medicine reconciliation',
-					pri: 'Routine',
-					status: 'Not started',
-					eta: '2 days',
-					notes: '-'
-				},
-				{
-					role: 'Case management',
-					task: 'Secure SNF bed (rehab)',
-					pri: 'Routine',
-					status: 'In progress',
-					eta: '1 day',
-					notes: '—'
-				},
-				{
-					role: 'Nursing',
-					task: 'Discharge education',
-					pri: 'Routine',
-					status: 'At risk',
-					eta: '1 day',
-					notes: '—'
-				}
-			]
-		}
-	];
+	// const staffTaskSections: {
+	// 	title: string;
+	// 	rows: {
+	// 		role: string;
+	// 		task: string;
+	// 		pri: string;
+	// 		status: string;
+	// 		eta: string;
+	// 		notes?: string;
+	// 	}[];
+	// }[] = [
+	// 	{
+	// 		title: 'Current bottleneck',
+	// 		rows: [
+	// 			{
+	// 				role: 'Logistics / Admin',
+	// 				task: 'Insurance prior-authorization',
+	// 				pri: 'STAT',
+	// 				status: 'Delayed',
+	// 				eta: '2 days',
+	// 				notes: 'Payer response pending'
+	// 			}
+	// 		]
+	// 	},
+	// 	{
+	// 		title: 'Critical tasks',
+	// 		rows: [
+	// 			{
+	// 				role: 'Pharmacy',
+	// 				task: 'Medicine reconciliation',
+	// 				pri: 'Routine',
+	// 				status: 'Not started',
+	// 				eta: '2 days',
+	// 				notes: '-'
+	// 			},
+	// 			{
+	// 				role: 'Case management',
+	// 				task: 'Secure SNF bed (rehab)',
+	// 				pri: 'Routine',
+	// 				status: 'In progress',
+	// 				eta: '1 day',
+	// 				notes: '—'
+	// 			},
+	// 			{
+	// 				role: 'Nursing',
+	// 				task: 'Discharge education',
+	// 				pri: 'Routine',
+	// 				status: 'At risk',
+	// 				eta: '1 day',
+	// 				notes: '—'
+	// 			}
+	// 		]
+	// 	}
+	// ];
 
 	const portalTasks: {
 		dept: string;
@@ -358,6 +358,8 @@
 				</div>
 				<p class="text-center text-sm text-slate-500">
 					Click a row to open the coordinator task board for that patient.
+					<br>
+					For this demo, patients share the same task board, but in a full product every patient would have a personal one.
 				</p>
 			</div>
 		{:else if viewMode === 'staff' && staffScreen === 'detail'}
@@ -374,6 +376,8 @@
 					<span class="text-sm text-slate-600">Patient workspace</span>
 				</div>
 
+				<!-- Old code; if patient data for staff ever diverges from patient portal, this section can be used. -->	
+				<!--
 				<div class="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
 					<div class="rounded-[10px] bg-indigo-50 px-5 py-4">
 						<p class="text-sm text-blue-800">{detailStats[0].label}</p>
@@ -438,7 +442,69 @@
 							{/each}
 						</tbody>
 					</table>
+				</div> -->
+
+				<div class="rounded-[10px] border border-slate-200 bg-indigo-50 px-5 py-4">
+					<p class="text-base font-bold text-blue-800">
+						Patient: {selectedPatient.name} — Room {selectedPatient.room}
+					</p>
+					<p class="mt-1 text-sm leading-relaxed text-cyan-900">
+						Estimated discharge: April 29
+						<br />
+						Current Bottleneck: Insurance prior-authorization
+					</p>
 				</div>
+
+				<div class="overflow-x-auto rounded-[10px] border border-slate-300">
+					<table class="w-full min-w-[720px] text-left text-sm">
+						<thead>
+							<tr class="border-b border-slate-300 bg-indigo-50 text-cyan-900">
+								<th class="px-3 py-3 font-bold sm:px-4">Department</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Task</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Priority</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Status</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Est.</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Created</th>
+								<th class="px-3 py-3 font-bold sm:px-4">Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each portalTasks as t}
+								<tr
+									class="border-b border-slate-200 {t.highlight === 'blocked'
+										? 'bg-rose-100'
+										: t.highlight === 'done'
+											? 'bg-green-100'
+											: 'bg-white'}"
+								>
+									<td class="px-3 py-3 align-top sm:px-4">{t.dept}</td>
+									<td class="px-3 py-3 align-top sm:px-4">{t.task}</td>
+									<td class="px-3 py-3 align-top sm:px-4">
+										<span
+											class="inline-block whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium {priPill(
+												t.pri
+											)}"
+										>
+											{t.pri}
+										</span>
+									</td>
+									<td class="px-3 py-3 align-top sm:px-4">
+										<span
+											class="inline-block whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium {taskPill(
+												t.status
+											)}"
+										>
+											{t.status}
+										</span>
+									</td>
+									<td class="px-3 py-3 text-slate-700 sm:px-4">{t.est}</td>
+									<td class="px-3 py-3 text-slate-600 sm:px-4 whitespace-nowrap">{t.created}</td>
+									<td class="px-3 py-3 text-slate-600 sm:px-4 max-w-xs">{t.notes}</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>	
 			</div>
 		{:else}
 			<div class="flex flex-col gap-4">
@@ -449,7 +515,7 @@
 					<p class="mt-1 text-sm leading-relaxed text-cyan-900">
 						Estimated discharge: April 29
 						<br />
-						Current focus: insurance authorization
+						Current Bottleneck: Insurance prior-authorization
 					</p>
 				</div>
 
