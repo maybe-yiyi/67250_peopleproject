@@ -712,6 +712,45 @@
 					</div>
 				</div>
 			</div>
+			<div
+				class="mt-16 w-full rounded-2xl bg-navy p-8 shadow-md"
+				aria-label="Key theoretical insights"
+			>
+				<h2 class="text-center text-2xl font-medium text-white">Key Theoretical Insights</h2>
+				<div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+					<div class="flex flex-col gap-2 rounded-xl bg-blue p-5">
+						<h3 class="text-lg font-medium text-white">Cognitive load reduction</h3>
+						<p class="text-sm leading-relaxed text-sky">
+							By centralizing task-level data and surfacing data-informed EDDs automatically,
+							FlowState removes the burden on individual staff to mentally track and synthesize
+							discharge status across departments.
+						</p>
+					</div>
+					<div class="flex flex-col gap-2 rounded-xl bg-blue p-5">
+						<h3 class="text-lg font-medium text-white">From reactive to proactive</h3>
+						<p class="text-sm leading-relaxed text-sky">
+							Huddles shift from information gathering to strategic problem-solving when staff
+							arrive already oriented to the critical path, turning retrospective check-ins into
+							forward-looking action.
+						</p>
+					</div>
+					<div class="flex flex-col gap-2 rounded-xl bg-blue p-5">
+						<h3 class="text-lg font-medium text-white">Visibility of system status</h3>
+						<p class="text-sm leading-relaxed text-sky">
+							Without technology, patients lack persistent, on-demand access to their discharge
+							status. When people cannot see what is happening or why, unexplained delays create
+							anxiety and erode trust.
+						</p>
+					</div>
+					<div class="flex flex-col gap-2 rounded-xl bg-blue p-5">
+						<h3 class="text-lg font-medium text-white">Shared mental models</h3>
+						<p class="text-sm leading-relaxed text-sky">
+							A continuously updated, shared forecast replaces fragmented intuition-based estimates,
+							so clinical staff and patients work from the same source of truth.
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	<section
