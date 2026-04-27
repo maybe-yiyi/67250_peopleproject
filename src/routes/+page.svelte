@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { revealView } from '$lib/actions/revealView';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import {
 		FileX,
@@ -40,7 +41,7 @@
 		aria-labelledby="home-heading"
 	>
 		<div class="flex flex-row justify-between gap-50">
-			<div class="flex-1 flex flex-col gap-6">
+			<div class="flex-1 flex flex-col gap-6" use:revealView>
 				<div class="text-navy bg-[#dbeafe] rounded-full px-4 py-2 w-fit">
 					Information Systems People Project 2026
 				</div>
@@ -58,6 +59,7 @@
 				</p>
 			</div>
 			<div
+				use:revealView={{ delay: 100 }}
 				class="rounded-2xl border-navy border-2 py-11 px-7 flex-1 min-w-[55%] bg-white mb-20 shadow-md"
 			>
 				<img src={HomeImage} alt="People using product" class="h-auto w-full" />
@@ -79,7 +81,7 @@
 		</div>
 	</section>
 
-	<section id="problem" class="scroll-my-28 py-20" aria-labelledby="problem-heading">
+	<section id="problem" use:revealView class="scroll-my-28 py-20" aria-labelledby="problem-heading">
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="problem-heading" class="text-4xl font-medium text-navy">Problem and Context</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
@@ -142,7 +144,12 @@
 		</div>
 	</section>
 
-	<section id="opportunity" class="scroll-mt-28 bg-sky pt-16" aria-labelledby="opportunity-heading">
+	<section
+		id="opportunity"
+		use:revealView
+		class="scroll-mt-28 bg-sky pt-16"
+		aria-labelledby="opportunity-heading"
+	>
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="opportunity-heading" class="text-4xl font-medium text-navy">Why It Matters</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
@@ -226,7 +233,7 @@
 		</div>
 	</section>
 
-	<section id="solution" class="scroll-my-28 bg-white py-16" aria-labelledby="solution-heading">
+	<section id="solution" use:revealView class="scroll-my-28 bg-white py-16" aria-labelledby="solution-heading">
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="solution-heading" class="text-4xl font-medium text-navy">Our Solution</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
@@ -377,6 +384,7 @@
 
 	<section
 		id="strategy"
+		use:revealView
 		class="scroll-my-28 py-16 bg-gradient-to-b from-sky to-white"
 		aria-labelledby="strategy-heading"
 	>
@@ -623,6 +631,7 @@
 	</section>
 	<section
 		id="social-theory"
+		use:revealView
 		class="scroll-my-28 py-16 bg-white"
 		aria-labelledby="social-theory-heading"
 	>
@@ -719,7 +728,7 @@
 			</div>
 		</div>
 	</section>
-	<section id="impact" class="scroll-my-28 py-16 bg-sky" aria-labelledby="impact-heading">
+	<section id="impact" use:revealView class="scroll-my-28 py-16 bg-sky" aria-labelledby="impact-heading">
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="impact-heading" class="text-4xl font-medium text-navy">Expected Impact</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
@@ -851,7 +860,7 @@
 			</div>
 		</div>
 	</section>
-	<section id="team" class="scroll-my-28 py-16 bg-white" aria-labelledby="team-heading">
+	<section id="team" use:revealView class="scroll-my-28 py-16 bg-white" aria-labelledby="team-heading">
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="team-heading" class="text-4xl font-medium text-navy">Our Team.</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">

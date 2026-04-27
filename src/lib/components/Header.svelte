@@ -4,7 +4,7 @@
 </script>
 
 <header
-	class="flex min-h-24 flex-row items-center justify-between border-b-2 border-navy bg-white px-6"
+	class="animate-page-header flex min-h-24 flex-row items-center justify-between border-b-2 border-navy bg-white px-6"
 >
 	<Logo />
 	<NavBar />
