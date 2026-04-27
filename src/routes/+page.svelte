@@ -72,8 +72,8 @@
 		class="scroll-mt-28 px-6 py-7 bg-gradient-to-b from-white to-sky"
 		aria-labelledby="home-heading"
 	>
-		<div class="flex flex-row justify-between gap-50">
-			<div class="flex-1 flex flex-col gap-6" use:revealView>
+		<div class="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12">
+			<div class="min-w-0 flex-1 flex flex-col gap-6" use:revealView>
 				<div class="text-navy bg-[#dbeafe] rounded-full px-4 py-2 w-fit">
 					Information Systems People Project 2026
 				</div>
@@ -92,10 +92,10 @@
 			</div>
 			<div
 				use:revealView={{ delay: 100 }}
-				class="rounded-2xl border-navy border-2 py-11 px-7 flex-1 min-w-[55%] bg-white mb-20 shadow-md"
+				class="min-w-0 w-full flex-1 rounded-2xl border-navy border-2 py-8 px-5 mb-20 bg-white shadow-md sm:py-11 sm:px-7 lg:min-w-[55%]"
 			>
 				<img src={HomeImage} alt="People using product" class="h-auto w-full" />
-				<div class="grid grid-cols-3 mt-8 gap-22">
+				<div class="mt-6 grid grid-cols-1 gap-4 sm:mt-8 sm:grid-cols-3 sm:gap-6">
 					<div class="rounded-lg bg-sky flex flex-col items-center p-3 w-full shadow-md">
 						<SlotNumber value="32%" class="text-blue text-2xl" />
 						<span class="text-gray min-w-max whitespace-nowrap">Faster Discharge</span>
@@ -114,13 +114,13 @@
 	</section>
 
 	<section id="problem" use:revealView class="scroll-my-28 py-20" aria-labelledby="problem-heading">
-		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+		<div class="mx-auto flex w-full max-w-full flex-col items-center sm:max-w-[70vw]">
 			<h1 id="problem-heading" class="text-4xl font-medium text-navy">Problem and Context</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
 				Discharge delays in smaller hospitals stem from systemic coordination failures, not
 				individual negligence
 			</p>
-			<div class="grid grid-cols-3 my-14 gap-6">
+			<div class="my-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				<div class="bg-sky rounded-2xl px-7 py-6 flex flex-col border-l-4 border-blue shadow-md">
 					<Icon src={FileX} class="h-10 w-10 [stroke-width:2] text-blue mb-2" />
 					<span class="text-navy text-lg my-2">Fragmented Systems</span>
@@ -164,7 +164,9 @@
 			</div>
 			<div class="rounded-2xl bg-navy w-full flex flex-col items-center p-8">
 				<span class="text-white text-2xl">Key Stakeholders Affected</span>
-				<div class="flex flex-row justify-between gap-7 mt-6">
+				<div
+					class="mt-6 flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row sm:gap-4 md:gap-7"
+				>
 					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Nurses</div>
 					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Physicians</div>
 					<div class="text-white bg-blue rounded-full px-5 py-3 w-fit">Case Managers</div>
@@ -182,13 +184,13 @@
 		class="scroll-mt-28 bg-sky pt-16"
 		aria-labelledby="opportunity-heading"
 	>
-		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+		<div class="mx-auto flex w-full max-w-full flex-col items-center sm:max-w-[70vw]">
 			<h1 id="opportunity-heading" class="text-4xl font-medium text-navy">Why It Matters</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
 				Discharge planning failures create ripple effects across operations, safety, and patient
 				outcomes
 			</p>
-			<div class="grid grid-cols-2 my-14 gap-6">
+			<div class="my-14 grid grid-cols-1 gap-6 md:grid-cols-2">
 				<div
 					class="bg-white rounded-2xl px-9 py-8 flex flex-row border-l-4 border-red gap-4 shadow-md"
 				>
@@ -242,9 +244,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="bg-navy w-full flex flex-col items-center p-8">
-			<span class="text-white text-2xl">Impact Visualization</span>
-			<div class="flex flex-row justify-between gap-6 mt-6">
+		<div class="bg-navy w-full flex flex-col items-center p-6 sm:p-8">
+			<span class="text-center text-white text-2xl">Impact Visualization</span>
+			<div
+				class="mt-6 flex w-full max-w-4xl flex-col items-center gap-6 sm:flex-row sm:flex-wrap sm:justify-center"
+			>
 				<div class="flex flex-col gap-2 items-center">
 					<SlotNumber value="$2.8M" class="text-white text-4xl" />
 					<span class="text-sky">Annual cost of delays</span>
@@ -271,13 +275,13 @@
 		class="scroll-my-28 bg-white py-16"
 		aria-labelledby="solution-heading"
 	>
-		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+		<div class="mx-auto flex w-full max-w-full flex-col items-center sm:max-w-[70vw]">
 			<h1 id="solution-heading" class="text-4xl font-medium text-navy">Our Solution</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
 				A unified digital discharge coordination platform designed for smaller hospital environments
 			</p>
 			<div
-				class="rounded-2xl bg-navy w-full flex flex-row justify-between mt-12 items-center p-8 gap-8 bg-gradient-to-r from-navy to-blue"
+				class="mt-12 flex w-full flex-col items-stretch gap-6 rounded-2xl bg-navy bg-gradient-to-r from-navy to-blue p-6 sm:items-center sm:justify-between sm:p-8 md:flex-row"
 			>
 				<div class="flex flex-col gap-2 items-center">
 					<span class="text-white text-4xl">Single Platform</span>
@@ -292,7 +296,7 @@
 					<span class="text-sky">Personalized workflows</span>
 				</div>
 			</div>
-			<div class="grid grid-cols-2 my-14 gap-6">
+			<div class="my-14 grid grid-cols-1 gap-6 md:grid-cols-2">
 				<div
 					class="bg-sky rounded-2xl px-9 py-8 flex flex-row border-2 border-blue gap-4 shadow-md"
 				>
@@ -380,9 +384,11 @@
 					<SolutionWireframe />
 				</div>
 			</div>
-			<div class="mt-14 rounded-2xl bg-navy w-full flex flex-col items-center p-8 mt-12">
-				<span class="text-white text-2xl font-medium">System Benefits</span>
-				<div class="flex flex-row justify-between gap-7 mt-6">
+			<div class="mt-14 mt-12 flex w-full flex-col items-center rounded-2xl bg-navy p-6 sm:p-8">
+				<span class="text-center text-white text-2xl font-medium">System Benefits</span>
+				<div
+					class="mt-6 flex w-full max-w-4xl flex-col items-stretch gap-6 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-7"
+				>
 					<div class="text-white flex flex-col items-center px-5 py-3 gap-2">
 						<Icon src={Check} class="h-8 w-8 [stroke-width:2]" />
 						<span>Improved Visibility</span>
@@ -409,12 +415,12 @@
 		class="scroll-my-28 py-16 bg-gradient-to-b from-sky to-white"
 		aria-labelledby="strategy-heading"
 	>
-		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+		<div class="mx-auto flex w-full max-w-full flex-col items-center sm:max-w-[70vw]">
 			<h1 id="strategy-heading" class="text-4xl font-medium text-navy">Strategic Analysis</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
 				Value creation through targeted process improvement and competitive positioning
 			</p>
-			<div class="mt-12 grid grid-cols-2 gap-8">
+			<div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
 				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white shadow-sm">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Target} class="h-8 w-8 text-blue" />
@@ -622,10 +628,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="rounded-2xl p-8 bg-navy flex flex-col mt-12 w-full">
-				<div class="gap-3 flex flex-row">
-					<Icon src={TrendingUp} class="h-8 w-8 text-white" />
-					<span class="text-white text-2xl font-medium">Competitive Positioning</span>
+			<div class="mt-12 flex w-full flex-col rounded-2xl bg-navy p-6 sm:p-8">
+				<div class="flex flex-row items-start gap-3 sm:items-center">
+					<Icon src={TrendingUp} class="h-8 w-8 shrink-0 text-white" />
+					<span class="text-lg font-medium text-white sm:text-2xl">Competitive Positioning</span>
 				</div>
 				<div class="grid grid-cols-1 mt-6">
 					<div class="flex flex-col">
@@ -652,7 +658,7 @@
 		class="scroll-my-28 py-16 bg-white"
 		aria-labelledby="social-theory-heading"
 	>
-		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+		<div class="mx-auto flex w-full max-w-full flex-col items-center sm:max-w-[70vw]">
 			<h1 id="social-theory-heading" class="text-4xl font-medium text-navy">
 				Application of Social Theories
 			</h1>
@@ -790,12 +796,12 @@
 		class="scroll-my-28 py-16 bg-sky"
 		aria-labelledby="impact-heading"
 	>
-		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+		<div class="mx-auto flex w-full max-w-full flex-col items-center sm:max-w-[70vw]">
 			<h1 id="impact-heading" class="text-4xl font-medium text-navy">Expected Impact</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
 				Transforming hospital operations and improving patient outcomes
 			</p>
-			<div class="mt-12 grid grid-cols-2 gap-8">
+			<div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
 				<div class="p-8 border-2 border-blue rounded-2xl gap-4 flex flex-col bg-white shadow-md">
 					<div class="flex flex-row mb-2 gap-3">
 						<Icon src={Building} class="h-8 w-8 text-blue" />
@@ -927,12 +933,12 @@
 		class="scroll-my-28 py-16 bg-white"
 		aria-labelledby="team-heading"
 	>
-		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
+		<div class="mx-auto flex w-full max-w-full flex-col items-center sm:max-w-[70vw]">
 			<h1 id="team-heading" class="text-4xl font-medium text-navy">Our Team.</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
 				A multidisciplinary team approach to comprehensive systems analysis
 			</p>
-			<div class="mt-12 grid grid-cols-2 w-full gap-8">
+			<div class="mt-12 grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
 				<div
 					class="bg-white rounded-2xl px-9 py-8 flex flex-col border-l-4 border-[#2563eb] gap-4 shadow-sm"
 				>
@@ -1035,7 +1041,7 @@
 		class="scroll-my-28 bg-sky py-16"
 		aria-labelledby="references-heading"
 	>
-		<div class="mx-auto flex w-full max-w-[70vw] flex-col items-center">
+		<div class="mx-auto flex w-full max-w-full flex-col items-center sm:max-w-[70vw]">
 			<h1 id="references-heading" class="text-4xl font-medium text-navy">References</h1>
 			<ol
 				class="mt-10 w-full max-w-4xl list-none space-y-4 p-0"
