@@ -25,6 +25,7 @@
 	} from '@steeze-ui/lucide-icons';
 	import SectionScrollSpy from '$lib/components/SectionScrollSpy.svelte';
 	import SolutionWireframe from '$lib/components/SolutionWireframe.svelte';
+	import SlotNumber from '$lib/components/SlotNumber.svelte';
 	import HomeImage from '$lib/assets/HomeImage.png';
 	import AddisonImage from '$lib/assets/addison.jpg';
 	import SunnyImage from '$lib/assets/sunny.jpg';
@@ -65,15 +66,15 @@
 				<img src={HomeImage} alt="People using product" class="h-auto w-full" />
 				<div class="grid grid-cols-3 mt-8 gap-22">
 					<div class="rounded-lg bg-sky flex flex-col items-center p-3 w-full shadow-md">
-						<span class="text-blue text-2xl">32%</span>
+						<SlotNumber value="32%" class="text-blue text-2xl" />
 						<span class="text-gray min-w-max whitespace-nowrap">Faster Discharge</span>
 					</div>
 					<div class="rounded-lg bg-sky flex flex-col items-center p-3 w-full shadow-md">
-						<span class="text-blue text-2xl">+24%</span>
+						<SlotNumber value="+24%" class="text-blue text-2xl" />
 						<span class="text-gray min-w-max whitespace-nowrap">Increased Coordination</span>
 					</div>
 					<div class="rounded-lg bg-sky flex flex-col items-center p-3 w-full shadow-md">
-						<span class="text-blue text-2xl">-18%</span>
+						<SlotNumber value="-18%" class="text-blue text-2xl" />
 						<span class="text-gray min-w-max whitespace-nowrap">Readmission Rate</span>
 					</div>
 				</div>
@@ -165,7 +166,7 @@
 					</div>
 					<div class="flex flex-col">
 						<span class="text-navy text-lg">Operational Inefficiency</span>
-						<span class="text-red text-3xl my-2">27%</span>
+						<SlotNumber value="27%" class="text-red text-3xl my-2" />
 						<span class="text-gray">Average increase in length of stay due to discharge delays</span
 						>
 					</div>
@@ -178,7 +179,7 @@
 					</div>
 					<div class="flex flex-col">
 						<span class="text-navy text-lg">Patient Safety Concerns</span>
-						<span class="text-yellow text-3xl my-2">2.4x</span>
+						<SlotNumber value="2.4x" class="text-yellow text-3xl my-2" />
 						<span class="text-gray"
 							>Higher risk of adverse events with prolonged hospital stays</span
 						>
@@ -192,7 +193,7 @@
 					</div>
 					<div class="flex flex-col">
 						<span class="text-navy text-lg">Readmission Risk</span>
-						<span class="text-red text-3xl my-2">23%</span>
+						<SlotNumber value="23%" class="text-red text-3xl my-2" />
 						<span class="text-gray">Of readmissions linked to inadequate discharge planning</span>
 					</div>
 				</div>
@@ -204,7 +205,7 @@
 					</div>
 					<div class="flex flex-col">
 						<span class="text-navy text-lg">Staff Burden</span>
-						<span class="text-yellow text-3xl my-2">4.2 hrs</span>
+						<SlotNumber value="4.2 hrs" class="text-yellow text-3xl my-2" />
 						<span class="text-gray">Daily time wasted per staff member on coordination tasks</span>
 					</div>
 				</div>
@@ -214,26 +215,31 @@
 			<span class="text-white text-2xl">Impact Visualization</span>
 			<div class="flex flex-row justify-between gap-6 mt-6">
 				<div class="flex flex-col gap-2 items-center">
-					<span class="text-white text-4xl">$2.8M</span>
+					<SlotNumber value="$2.8M" class="text-white text-4xl" />
 					<span class="text-sky">Annual cost of delays</span>
 				</div>
 				<div class="flex flex-col gap-2 items-center">
-					<span class="text-white text-4xl">156</span>
+					<SlotNumber value="156" class="text-white text-4xl" />
 					<span class="text-sky">Beds occupied unnecessarily</span>
 				</div>
 				<div class="flex flex-col gap-2 items-center">
-					<span class="text-white text-4xl">18%</span>
+					<SlotNumber value="18%" class="text-white text-4xl" />
 					<span class="text-sky">Patient satisfaction drop</span>
 				</div>
 				<div class="flex flex-col gap-2 items-center">
-					<span class="text-white text-4xl">340</span>
+					<SlotNumber value="340" class="text-white text-4xl" />
 					<span class="text-sky">Staff hours lost weekly</span>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="solution" use:revealView class="scroll-my-28 bg-white py-16" aria-labelledby="solution-heading">
+	<section
+		id="solution"
+		use:revealView
+		class="scroll-my-28 bg-white py-16"
+		aria-labelledby="solution-heading"
+	>
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="solution-heading" class="text-4xl font-medium text-navy">Our Solution</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
@@ -728,7 +734,12 @@
 			</div>
 		</div>
 	</section>
-	<section id="impact" use:revealView class="scroll-my-28 py-16 bg-sky" aria-labelledby="impact-heading">
+	<section
+		id="impact"
+		use:revealView
+		class="scroll-my-28 py-16 bg-sky"
+		aria-labelledby="impact-heading"
+	>
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="impact-heading" class="text-4xl font-medium text-navy">Expected Impact</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
@@ -860,7 +871,12 @@
 			</div>
 		</div>
 	</section>
-	<section id="team" use:revealView class="scroll-my-28 py-16 bg-white" aria-labelledby="team-heading">
+	<section
+		id="team"
+		use:revealView
+		class="scroll-my-28 py-16 bg-white"
+		aria-labelledby="team-heading"
+	>
 		<div class="flex flex-col items-center w-full max-w-[70vw] mx-auto">
 			<h1 id="team-heading" class="text-4xl font-medium text-navy">Our Team.</h1>
 			<p class="mt-4 max-w-prose text-center text-gray">
